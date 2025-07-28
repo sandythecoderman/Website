@@ -1,3 +1,185 @@
+// PC Eyes Mouse Tracking
+let pcContainer = null;
+let leftEye = null;
+let rightEye = null;
+let isEyeTracking = false;
+
+function initPCEyes() {
+    pcContainer = document.querySelector('.pc-monitor'); // Changed from .pc-container to .pc-monitor
+    leftEye = document.querySelector('.left-eye .pupil');
+    rightEye = document.querySelector('.right-eye .pupil');
+    
+    console.log('PC Eyes Init:', { pcContainer, leftEye, rightEye });
+    
+    if (pcContainer && leftEye && rightEye) {
+        // Mouse move tracking
+        pcContainer.addEventListener('mousemove', handleEyeMouseMove);
+        pcContainer.addEventListener('mouseenter', () => { 
+            isEyeTracking = true;
+            console.log('Eye tracking enabled');
+        });
+        pcContainer.addEventListener('mouseleave', () => { 
+            isEyeTracking = false;
+            resetEyePosition();
+            console.log('Eye tracking disabled');
+        });
+        
+        // Touch support for mobile
+        pcContainer.addEventListener('touchmove', handleEyeTouchMove, { passive: true });
+        pcContainer.addEventListener('touchstart', () => { isEyeTracking = true; });
+        pcContainer.addEventListener('touchend', () => { 
+            isEyeTracking = false;
+            resetEyePosition();
+        });
+        
+        console.log('PC Eyes event listeners added successfully');
+        
+        // Test eye movement on load
+        setTimeout(() => {
+            console.log('Testing eye movement...');
+            leftEye.style.transform = 'translate(calc(-50% + 5px), calc(-50% + 5px))';
+            rightEye.style.transform = 'translate(calc(-50% + 5px), calc(-50% + 5px))';
+            setTimeout(() => {
+                leftEye.style.transform = 'translate(-50%, -50%)';
+                rightEye.style.transform = 'translate(-50%, -50%)';
+            }, 1000);
+        }, 2000);
+    } else {
+        console.error('PC Eyes elements not found:', { pcContainer, leftEye, rightEye });
+    }
+}
+
+function handleEyeMouseMove(e) {
+    if (!isEyeTracking || !leftEye || !rightEye) {
+        console.log('Eye tracking not active:', { isEyeTracking, leftEye, rightEye });
+        return;
+    }
+    
+    const rect = pcContainer.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    const deltaX = mouseX - centerX;
+    const deltaY = mouseY - centerY;
+    
+    // Constrain eye movement to stay within screen boundaries
+    const maxEyeMovement = 8; // Reduced for better boundary control
+    const eyeX = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaX / centerX) * maxEyeMovement));
+    const eyeY = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaY / centerY) * maxEyeMovement));
+    
+    console.log('Eye movement:', { eyeX, eyeY, mouseX, mouseY, centerX, centerY });
+    
+    // Apply smooth eye movement with boundary constraints
+    // Combine the centering transform with the eye movement
+    leftEye.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+    rightEye.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+    
+    // Enhanced eye glow effect based on mouse position
+    const intensity = Math.sqrt(deltaX * deltaX + deltaY * deltaY) / (centerX * 0.8);
+    const eyeOuters = document.querySelectorAll('.eye-outer');
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const glowColor = currentTheme === 'light' ? '139, 92, 246' : '0, 255, 136';
+    
+    eyeOuters.forEach(eye => {
+        const glowIntensity = Math.min(1, intensity);
+        eye.style.boxShadow = `0 0 ${20 + glowIntensity * 15}px rgba(${glowColor}, ${0.8 + glowIntensity * 0.2}), inset 0 0 10px rgba(${glowColor}, 0.3)`;
+    });
+}
+
+function handleEyeTouchMove(e) {
+    if (!isEyeTracking || !leftEye || !rightEye) return;
+    
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = pcContainer.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const touchX = touch.clientX - rect.left;
+    const touchY = touch.clientY - rect.top;
+    
+    const deltaX = touchX - centerX;
+    const deltaY = touchY - centerY;
+    
+    // Constrain eye movement to stay within screen boundaries
+    const maxEyeMovement = 6;
+    const eyeX = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaX / centerX) * maxEyeMovement));
+    const eyeY = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaY / centerY) * maxEyeMovement));
+    
+    leftEye.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+    rightEye.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+}
+
+function resetEyePosition() {
+    if (leftEye && rightEye) {
+        leftEye.style.transform = 'translate(-50%, -50%)';
+        rightEye.style.transform = 'translate(-50%, -50%)';
+        
+        const eyeOuters = document.querySelectorAll('.eye-outer');
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const glowColor = currentTheme === 'light' ? '139, 92, 246' : '0, 255, 136';
+        
+        eyeOuters.forEach(eye => {
+            eye.style.boxShadow = `0 0 20px rgba(${glowColor}, 0.8), inset 0 0 10px rgba(${glowColor}, 0.3)`;
+        });
+    }
+}
+
+// Enhanced hover effects for PC components
+function initPCHoverEffects() {
+    const pcMonitor = document.querySelector('.pc-monitor');
+    if (!pcMonitor) return;
+    
+    pcMonitor.addEventListener('mouseenter', () => {
+        // Speed up animations on hover
+        const screenGlow = pcMonitor.querySelector('.screen-glow');
+        const waveformLine = pcMonitor.querySelector('.waveform-line');
+        
+        if (screenGlow) {
+            screenGlow.style.animationDuration = '2s';
+            screenGlow.style.opacity = '0.9';
+        }
+        
+        if (waveformLine) {
+            waveformLine.style.animationDuration = '1s';
+        }
+    });
+    
+    pcMonitor.addEventListener('mouseleave', () => {
+        // Reset animation speeds
+        const screenGlow = pcMonitor.querySelector('.screen-glow');
+        const waveformLine = pcMonitor.querySelector('.waveform-line');
+        
+        if (screenGlow) {
+            screenGlow.style.animationDuration = '4s';
+            screenGlow.style.opacity = '0.4';
+        }
+        
+        if (waveformLine) {
+            waveformLine.style.animationDuration = '2s';
+        }
+    });
+}
+
+// Dynamic Graph Node Initialization
+function initDynamicGraph() {
+    const graphNodes = document.querySelectorAll('.graph-node');
+    
+    graphNodes.forEach(node => {
+        const iconClass = node.getAttribute('data-icon');
+        if (iconClass) {
+            const icon = document.createElement('i');
+            icon.className = iconClass;
+            node.appendChild(icon);
+        }
+    });
+    
+    console.log('Dynamic graph initialized with', graphNodes.length, 'nodes');
+}
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -88,6 +270,17 @@ document.addEventListener('DOMContentLoaded', () => {
             typeWriter();
         }, (index + 1) * 1000);
     });
+    
+    // Initialize PC Eyes functionality
+    initPCEyes();
+    initPCHoverEffects();
+    
+    // Initialize ROI functionality
+    animateROINumbers();
+    initROIHoverEffects();
+    
+    // Initialize Dynamic Graph
+    initDynamicGraph();
 });
 
 // Remove smooth scrolling since we're using separate pages now
@@ -328,8 +521,8 @@ const impactObserver = new IntersectionObserver((entries) => {
                 const number = parseInt(text);
                 animateCounter(numberElement, number + 'x');
             } else if (text === '24/7') {
-                // Special case for 24/7
-                numberElement.style.animation = 'pulse 2s ease-in-out infinite';
+                // Special case for 24/7 - no animation
+                numberElement.style.animation = 'none';
             }
             
             impactObserver.unobserve(numberElement);
@@ -343,6 +536,76 @@ document.addEventListener('DOMContentLoaded', () => {
         impactObserver.observe(number);
     });
 });
+
+// ROI Number Animation
+function animateROINumbers() {
+    const numberElements = document.querySelectorAll('.impact-number[data-value]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const targetValue = parseInt(element.getAttribute('data-value'));
+                animateNumber(element, targetValue);
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    numberElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+function animateNumber(element, targetValue) {
+    let currentValue = 0;
+    const duration = 2000; // 2 seconds
+    const increment = targetValue / (duration / 16); // 60fps
+    
+    const timer = setInterval(() => {
+        currentValue += increment;
+        if (currentValue >= targetValue) {
+            currentValue = targetValue;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(currentValue) + '%';
+    }, 16);
+}
+
+// Enhanced hover effects for ROI cards
+function initROIHoverEffects() {
+    const impactCards = document.querySelectorAll('.enhanced-impact-card');
+    
+    impactCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Speed up animations on hover
+            const icon = card.querySelector('.impact-icon');
+            const particles = card.querySelectorAll('.impact-particles .particle');
+            
+            if (icon) {
+                icon.style.animationDuration = '1.5s';
+            }
+            
+            particles.forEach(particle => {
+                particle.style.animationDuration = '2s';
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            // Reset animation speeds
+            const icon = card.querySelector('.impact-icon');
+            const particles = card.querySelectorAll('.impact-particles .particle');
+            
+            if (icon) {
+                icon.style.animationDuration = '3s';
+            }
+            
+            particles.forEach(particle => {
+                particle.style.animationDuration = '4s';
+            });
+        });
+    });
+}
 
 // Smooth reveal animation for sections
 function revealOnScroll() {
