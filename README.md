@@ -1,138 +1,130 @@
 # Skenzer Website
 
-A modern, professional website for Skenzer - an AI startup building the next generation of autonomous ITIL products for MSMEs.
+A modern, responsive website for Skenzer AI startup featuring advanced animations and professional design.
 
 ## 🚀 Features
 
-- **Modern Dark Theme**: Sophisticated dark design with electric blue accents
-- **Responsive Design**: Fully responsive across all devices
-- **Interactive Animations**: Smooth scroll animations and neural network visualizations
-- **Professional Typography**: Clean, modern Inter font family
-- **Real-time Data Focus**: Emphasizes live data capabilities and autonomous operations
-- **Investor-Focused Content**: Tailored messaging for tech investors and VCs
+- **Modern Design**: Clean, professional interface with dark/light theme support
+- **Responsive Layout**: Optimized for all devices and screen sizes
+- **Interactive Animations**: 5 different animation styles with style selector
+- **Multi-page Structure**: Separate pages for Home, About, Product, and Contact
+- **Theme Switching**: Dynamic color schemes (green for dark mode, purple for light mode)
+- **Professional Content**: Tailored for tech investors and venture capitalists
 
-## 🎨 Design Highlights
+## 🎨 Animation Styles
 
-- **Color Palette**: 
-  - Primary Background: `#111111` (near-black)
-  - Accent Color: `#00A4FF` (electric blue)
-  - Text: White and light grey variants
+1. **Floating Icons**: Tech icons that gently float with hover effects
+2. **Typing Animation**: Terminal-style typewriter effect
+3. **Geometric Animation**: Rotating shapes with connecting lines
+4. **Wave Flow**: Data flow visualization with animated waves
+5. **Pulse Animation**: AI heartbeat effect with expanding rings
 
-- **Typography**: Inter font family for clean, modern appearance
-- **Visual Elements**: Abstract 3D graphics representing neural networks and data flow
-- **Animations**: Smooth transitions, floating particles, and interactive elements
+## 📁 Project Structure
 
-## 📱 Pages & Sections
+```
+skenzer-website/
+├── index.html          # Home page
+├── about.html          # About Us page
+├── product.html        # Product/Skenzer Synapse page
+├── contact.html        # Contact page
+├── styles.css          # Main stylesheet with animations
+├── script.js           # JavaScript functionality
+└── README.md           # Project documentation
+```
+
+## 🛠️ Technologies Used
+
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Modern styling with Flexbox, Grid, and animations
+- **JavaScript**: Interactive functionality and theme switching
+- **Font Awesome**: Icons for UI elements
+- **Google Fonts**: Montserrat font family
+
+## 🎯 Key Sections
 
 ### Home Page
-- Hero section with animated neural network visualization
-- Problem statement with three key pain points
+- Hero section with animated visual components
+- Problem statement with three key challenges
 - Solution introduction with Skenzer Synapse
-- Measurable impact metrics (90% faster resolution, 60% cost reduction, etc.)
+- Impact metrics with ROI statistics
 
-### About Us
-- Mission statement and vision
-- Team profiles with AI research and business expertise
-- Company story and founding narrative
+### About Page
+- Company story and mission
+- Team member profiles
+- Founding narrative
 
-### Product (Skenzer Synapse)
-- Detailed platform overview
+### Product Page
+- Skenzer Synapse platform details
 - Two-engine architecture explanation
-- Interactive use case tabs
-- Real-time data capabilities emphasis
+- Use cases with interactive tabs
+- Call-to-action for demos
 
-### Contact
-- Direct contact information for investors and sales
+### Contact Page
+- Contact information for different inquiries
 - Contact form with validation
-- Bangalore, India location
+- Professional contact details
 
-## 🛠️ Technical Stack
+## 🌟 Design Highlights
 
-- **HTML5**: Semantic markup structure
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Interactive functionality and animations
-- **Font Awesome**: Icon library
-- **Google Fonts**: Inter font family
+- **Color Scheme**: 
+  - Dark mode: Green accents (#00ff88)
+  - Light mode: Purple accents (#8b5cf6)
+- **Typography**: Montserrat font family for modern, clean look
+- **Animations**: Smooth CSS transitions and keyframe animations
+- **Responsive**: Mobile-first approach with adaptive layouts
 
 ## 🚀 Getting Started
 
-1. **Clone or Download** the project files
-2. **Open** `index.html` in your web browser
-3. **No build process required** - it's a static website
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/skenzer-website.git
+   cd skenzer-website
+   ```
 
-### File Structure
-```
-website-skenzer/
-├── index.html          # Main HTML file
-├── styles.css          # All CSS styles
-├── script.js           # JavaScript functionality
-└── README.md           # This file
-```
+2. Open in your browser:
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Then visit `http://localhost:8000`
 
-## 🎯 Key Features Implemented
+3. Or simply open `index.html` in your browser
 
-### Interactive Elements
-- Smooth scrolling navigation
-- Mobile-responsive hamburger menu
-- Tab switching for use cases
-- Contact form with validation
-- Animated counters for impact metrics
+## 📱 Browser Support
 
-### Visual Effects
-- Neural network animations
-- Floating particles
-- Parallax scrolling effects
-- Typing animation for hero title
-- Intersection Observer animations
-
-### Responsive Design
-- Mobile-first approach
-- Flexible grid layouts
-- Adaptive typography
-- Touch-friendly interactions
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
+- Mobile browsers
 
 ## 🎨 Customization
 
-### Colors
-To modify the color scheme, update these CSS variables in `styles.css`:
+### Changing Colors
+Edit the CSS variables in `styles.css`:
 ```css
-/* Primary colors */
---primary-bg: #111111;
---accent-color: #00A4FF;
---text-primary: #ffffff;
---text-secondary: #cccccc;
+:root {
+    --accent-color: #00ff88; /* Dark mode color */
+}
+
+[data-theme="light"] {
+    --accent-color: #8b5cf6; /* Light mode color */
+}
 ```
 
-### Content
-- Update team member information in the HTML
-- Modify contact details and email addresses
-- Adjust metrics and impact numbers
-- Customize company story and mission
-
-### Animations
-- Neural network animation speed can be adjusted in CSS
-- Particle count and movement patterns in JavaScript
-- Scroll animation timing and effects
-
-## 📧 Contact Information
-
-For the website:
-- **Investors**: `investors@skenzer.com`
-- **Sales/Demos**: `sales@skenzer.com`
-- **Location**: Bangalore, India
-
-## 🔧 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+### Adding New Animations
+1. Add new animation component to HTML
+2. Create corresponding CSS styles
+3. Add button to style selector
+4. Update JavaScript for switching
 
 ## 📄 License
 
-This project is created for Skenzer. All rights reserved.
+This project is created for Skenzer AI startup. All rights reserved.
+
+## 🤝 Contributing
+
+This is a private project for Skenzer AI. For questions or suggestions, please contact the development team.
 
 ---
 
-**Built with ❤️ for Skenzer's vision of autonomous IT operations** 
+**Built with ❤️ for Skenzer AI** 
