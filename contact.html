@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Nyxerin';
+            src: url('NYXERIN.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body>
     <!-- Theme Toggle -->
@@ -37,8 +46,18 @@
     <!-- Contact Hero Section -->
     <section class="contact-hero">
         <div class="container">
-            <h1 class="hero-title">Let's Talk.</h1>
-            <p class="contact-subtitle">Ready to see how Skenzer can transform your business operations? Get in touch with us.</p>
+            <div class="contact-hero-content">
+                <h1 class="hero-title">Get in Touch</h1>
+                <p class="contact-subtitle">Ready to transform your business? Let's start a conversation.</p>
+            </div>
+        </div>
+        <!-- Improved Design Elements -->
+        <div class="contact-design-elements">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+            <div class="subtle-glow glow-1"></div>
+            <div class="subtle-glow glow-2"></div>
         </div>
     </section>
 
@@ -46,35 +65,56 @@
     <section class="contact-section">
         <div class="container">
             <div class="contact-grid">
+                <!-- Contact Information -->
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <h4>For Investors</h4>
-                        <a href="mailto:investors@skenzer.com">investors@skenzer.com</a>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:contactus@skenzer.com">contactus@skenzer.com</a>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <h4>For Sales/Demos</h4>
-                        <a href="mailto:sales@skenzer.com">sales@skenzer.com</a>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>496-B, 2nd Main Road, GM Palya, Bangalore 560075</p>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <h4>Address</h4>
-                        <p>Bangalore, India</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>Business Hours</h4>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Contact Form -->
                 <div class="contact-form">
-                    <h3>Send us a Message</h3>
+                    <div class="form-header">
+                        <h3>Send us a Message</h3>
+                        <p>We'd love to hear from you.</p>
+                    </div>
                     <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Name" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="company" name="company" placeholder="Company" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="company" name="company" placeholder="Company" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
                         </div>
                         <div class="form-group">
                             <select id="inquiry" name="inquiry" required>
@@ -86,9 +126,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+                            <textarea id="message" name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="cta-button">Send Message</button>
+                        <button type="submit" class="cta-button">
+                            <span>Send Message</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </form>
                 </div>
             </div>

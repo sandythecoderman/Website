@@ -8,6 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Nyxerin';
+            src: url('NYXERIN.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body>
     <!-- Theme Toggle -->
@@ -45,7 +53,7 @@
                     <div class="dynamic-graph-container">
                         <div class="graph-center">
                             <div class="center-node">
-                                <i class="fas fa-brain"></i>
+                            <i class="fas fa-brain"></i>
                                 <div class="center-pulse-ring"></div>
                                 <div class="center-pulse-ring ring-2"></div>
                             </div>
@@ -95,155 +103,500 @@
         </div>
     </section>
 
-
+    <!-- Multi-Industry Solutions Section -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="industries-header">
+                <h2 class="section-title">Multi-Industry Solutions</h2>
+                <p class="section-subtitle">Skenzer's universal intelligence platform adapts to any industry, providing autonomous solutions that scale with your business.</p>
+            </div>
+            
+            <div class="industries-slider-container">
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots" id="sliderDots"></div>
+                    <button class="slider-btn next-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="industries-slider" id="industriesSlider">
+                    <div class="industry-slide active">
+                        <div class="industry-card">
+                            <div class="industry-header">
+                                <div class="industry-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <div class="industry-title">
+                                    <h3>Healthcare</h3>
+                                    <span class="industry-subtitle">Medical Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="industry-content">
+                                <p class="industry-description">Transform healthcare delivery with AI-powered patient monitoring, diagnostic assistance, and predictive analytics that revolutionize patient care and medical outcomes.</p>
+                                
+                                <div class="industry-solutions">
+                                    <div class="solution-item">
+                                        <i class="fas fa-user-md"></i>
+                                        <span>Patient Monitoring</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-stethoscope"></i>
+                                        <span>Diagnostic Support</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>Predictive Analytics</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-file-medical"></i>
+                                        <span>Records Management</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-pills"></i>
+                                        <span>Medication Management</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-ambulance"></i>
+                                        <span>Emergency Response</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-features">
+                                    <div class="feature-highlight">
+                                        <h4>Key Capabilities</h4>
+                                        <ul>
+                                            <li>Real-time vital signs monitoring</li>
+                                            <li>AI-powered disease prediction</li>
+                                            <li>Automated medical coding</li>
+                                            <li>Drug interaction alerts</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-benefits">
+                                    <span class="benefit-tag">30% Faster Diagnosis</span>
+                                    <span class="benefit-tag">24/7 Monitoring</span>
+                                    <span class="benefit-tag">95% Accuracy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-slide">
+                        <div class="industry-card">
+                            <div class="industry-header">
+                                <div class="industry-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="industry-title">
+                                    <h3>Finance</h3>
+                                    <span class="industry-subtitle">Financial Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="industry-content">
+                                <p class="industry-description">Revolutionize financial operations with real-time fraud detection, algorithmic trading, and risk assessment that protect assets and maximize returns.</p>
+                                
+                                <div class="industry-solutions">
+                                    <div class="solution-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Fraud Detection</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-robot"></i>
+                                        <span>Algorithmic Trading</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <span>Risk Assessment</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                        <span>Automated Reporting</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Payment Processing</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <span>Portfolio Management</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-features">
+                                    <div class="feature-highlight">
+                                        <h4>Key Capabilities</h4>
+                                        <ul>
+                                            <li>Real-time transaction monitoring</li>
+                                            <li>Machine learning fraud patterns</li>
+                                            <li>Automated compliance reporting</li>
+                                            <li>Predictive market analysis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-benefits">
+                                    <span class="benefit-tag">99.9% Fraud Detection</span>
+                                    <span class="benefit-tag">Real-time Alerts</span>
+                                    <span class="benefit-tag">40% Cost Reduction</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-slide">
+                        <div class="industry-card">
+                            <div class="industry-header">
+                                <div class="industry-icon">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                                <div class="industry-title">
+                                    <h3>Manufacturing</h3>
+                                    <span class="industry-subtitle">Industrial Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="industry-content">
+                                <p class="industry-description">Optimize production with predictive maintenance, quality control automation, and supply chain intelligence that drive efficiency and reduce costs.</p>
+                                
+                                <div class="industry-solutions">
+                                    <div class="solution-item">
+                                        <i class="fas fa-tools"></i>
+                                        <span>Predictive Maintenance</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Quality Control</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-link"></i>
+                                        <span>Supply Chain Optimization</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-cogs"></i>
+                                        <span>Production Automation</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-warehouse"></i>
+                                        <span>Inventory Management</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Performance Analytics</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-features">
+                                    <div class="feature-highlight">
+                                        <h4>Key Capabilities</h4>
+                                        <ul>
+                                            <li>IoT sensor integration</li>
+                                            <li>Real-time production monitoring</li>
+                                            <li>Automated quality inspection</li>
+                                            <li>Predictive failure analysis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-benefits">
+                                    <span class="benefit-tag">40% Less Downtime</span>
+                                    <span class="benefit-tag">Zero Defects</span>
+                                    <span class="benefit-tag">25% Cost Savings</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-slide">
+                        <div class="industry-card">
+                            <div class="industry-header">
+                                <div class="industry-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="industry-title">
+                                    <h3>Retail</h3>
+                                    <span class="industry-subtitle">Retail Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="industry-content">
+                                <p class="industry-description">Enhance customer experience with intelligent inventory management, personalized marketing, and demand forecasting that drive sales and loyalty.</p>
+                                
+                                <div class="industry-solutions">
+                                    <div class="solution-item">
+                                        <i class="fas fa-boxes"></i>
+                                        <span>Inventory Management</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-headset"></i>
+                                        <span>Customer Service</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Demand Forecasting</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <span>Personalized Marketing</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-user-friends"></i>
+                                        <span>Customer Analytics</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-tags"></i>
+                                        <span>Price Optimization</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-features">
+                                    <div class="feature-highlight">
+                                        <h4>Key Capabilities</h4>
+                                        <ul>
+                                            <li>Real-time inventory tracking</li>
+                                            <li>AI-powered demand prediction</li>
+                                            <li>Personalized recommendations</li>
+                                            <li>Automated reordering systems</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="industry-benefits">
+                                    <span class="benefit-tag">25% Sales Increase</span>
+                                    <span class="benefit-tag">Zero Stockouts</span>
+                                    <span class="benefit-tag">30% Customer Retention</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-slide">
+                        <div class="industry-card">
+                            <div class="industry-header">
+                                <div class="industry-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="industry-title">
+                                    <h3>Transportation</h3>
+                                    <span class="industry-subtitle">Logistics Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="industry-content">
+                                <p class="industry-description">Streamline logistics with intelligent fleet management, route optimization, and predictive maintenance.</p>
+                                <div class="industry-solutions">
+                                    <div class="solution-item">
+                                        <i class="fas fa-truck-moving"></i>
+                                        <span>Fleet Management</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-route"></i>
+                                        <span>Route Optimization</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-wrench"></i>
+                                        <span>Predictive Maintenance</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        <span>Logistics Automation</span>
+                                    </div>
+                                </div>
+                                <div class="industry-benefits">
+                                    <span class="benefit-tag">35% Fuel Savings</span>
+                                    <span class="benefit-tag">Real-time Tracking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-slide">
+                        <div class="industry-card">
+                            <div class="industry-header">
+                                <div class="industry-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="industry-title">
+                                    <h3>Energy</h3>
+                                    <span class="industry-subtitle">Energy Intelligence</span>
+                                </div>
+                            </div>
+                            <div class="industry-content">
+                                <p class="industry-description">Optimize energy systems with intelligent grid monitoring, predictive maintenance, and renewable energy management.</p>
+                                <div class="industry-solutions">
+                                    <div class="solution-item">
+                                        <i class="fas fa-network-wired"></i>
+                                        <span>Grid Monitoring</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-tools"></i>
+                                        <span>Predictive Maintenance</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-leaf"></i>
+                                        <span>Energy Optimization</span>
+                                    </div>
+                                    <div class="solution-item">
+                                        <i class="fas fa-solar-panel"></i>
+                                        <span>Renewable Management</span>
+                                    </div>
+                                </div>
+                                <div class="industry-benefits">
+                                    <span class="benefit-tag">20% Energy Savings</span>
+                                    <span class="benefit-tag">Zero Outages</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Core Technology Section -->
     <section class="technology-section">
         <div class="container">
-            <h2 class="section-title">The Core Technology: <span class="highlight">A Brain and a Nervous System</span></h2>
-            <p class="section-subtitle">At the heart of our platform, Skenzer Synapse, are two distinct but deeply integrated engines. The simplest way to understand them is as a <strong>brain</strong> and a <strong>central nervous system</strong>.</p>
+            <div class="tech-header">
+                <h2 class="tech-main-title">Core Technology</h2>
+                <p class="tech-subtitle">Two powerful engines working in perfect harmony</p>
+            </div>
             
-            <!-- Technology Overview -->
-            <div class="tech-overview">
-                <div class="tech-card brain-card">
-                    <div class="tech-header">
-                        <div class="tech-number">1</div>
-                        <div class="tech-title">
-                            <h3>The Super RAG Engine</h3>
-                            <span class="tech-role">The Brain</span>
+            <!-- Technology Overview Cards -->
+            <div class="tech-cards-container">
+                <div class="tech-card-modern brain-card">
+                    <div class="tech-card-visual">
+                        <div class="tech-icon-modern">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="tech-number-badge">01</div>
+                    </div>
+                    <div class="tech-card-content">
+                        <h3 class="tech-card-title">Super RAG Engine</h3>
+                        <p class="tech-card-role">The Intelligent Brain</p>
+                        <p class="tech-card-description">Understands, reasons, and creates intelligent plans from your business data with deep contextual awareness.</p>
+                        <div class="tech-features">
+                            <span class="tech-feature">Knowledge Graph</span>
+                            <span class="tech-feature">Real-time Context</span>
+                            <span class="tech-feature">Deep Reasoning</span>
                         </div>
                     </div>
-                    <div class="tech-icon">
-                        <i class="fas fa-brain"></i>
+                </div>
+                
+                <div class="tech-connection-modern">
+                    <div class="connection-line"></div>
+                    <div class="connection-dot"></div>
+                </div>
+                
+                <div class="tech-card-modern nervous-card">
+                    <div class="tech-card-visual">
+                        <div class="tech-icon-modern">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="tech-number-badge">02</div>
                     </div>
-                    <p class="tech-description">Understands, reasons, and creates intelligent plans from your business data</p>
-                </div>
-                
-                <div class="tech-connector">
-                    <div class="connector-line"></div>
-                    <div class="connector-pulse"></div>
-                </div>
-                
-                <div class="tech-card nervous-card">
-                    <div class="tech-header">
-                        <div class="tech-number">2</div>
-                        <div class="tech-title">
-                            <h3>The Man-O-Man Engine</h3>
-                            <span class="tech-role">The Nervous System & Hands</span>
+                    <div class="tech-card-content">
+                        <h3 class="tech-card-title">Man-O-Man Engine</h3>
+                        <p class="tech-card-role">The Action System</p>
+                        <p class="tech-card-description">Takes plans and autonomously executes them across all your systems with precision and reliability.</p>
+                        <div class="tech-features">
+                            <span class="tech-feature">Autonomous Execution</span>
+                            <span class="tech-feature">System Integration</span>
+                            <span class="tech-feature">Feedback Loop</span>
                         </div>
                     </div>
-                    <div class="tech-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <p class="tech-description">Takes plans and autonomously executes them across all your systems</p>
                 </div>
             </div>
             
-            <!-- Detailed Technology Breakdown -->
-            <div class="tech-breakdown">
-                <!-- Super RAG Engine Details -->
-                <div class="tech-detail-card">
-                    <div class="tech-header">
-                        <div class="tech-number">1</div>
-                        <h3>The Super RAG Engine (sRAG): The Knowledge & Reasoning Core</h3>
+            <!-- Technology Details -->
+            <div class="tech-details-container">
+                <!-- Super RAG Details -->
+                <div class="tech-detail-modern">
+                    <div class="detail-header">
+                        <div class="detail-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="detail-title">
+                            <h3>Super RAG: Beyond Traditional RAG</h3>
+                            <p>Advanced knowledge processing and reasoning</p>
+                        </div>
                     </div>
                     
-                    <div class="tech-content">
-                        <div class="tech-problem">
-                            <h4><i class="fas fa-exclamation-triangle"></i> The Problem with Standard RAG</h4>
-                            <p>Standard RAG is like a librarian who can only fetch pages from books when you ask a question. It's helpful, but limited:</p>
-                            <ul>
-                                <li>Often grabs the wrong page or an incomplete one</li>
-                                <li>Doesn't understand relationships between different sources</li>
-                                <li>Can't handle complex, multi-step questions</li>
-                                <li>Answers are only as good as raw text, leading to errors</li>
+                    <div class="detail-content">
+                        <div class="detail-problem">
+                            <h4>Traditional RAG Limitations</h4>
+                            <ul class="problem-list">
+                                <li>Limited context understanding</li>
+                                <li>Poor relationship mapping</li>
+                                <li>Incomplete information retrieval</li>
+                                <li>High hallucination rates</li>
                             </ul>
                         </div>
                         
-                        <div class="tech-solution">
-                            <h4><i class="fas fa-star"></i> How Our Super RAG is Different</h4>
-                            <p>Our Super RAG is like a senior researcher who has read every book, document, and note in the library. It doesn't just fetch pages; it has built its own interconnected "map" of all the knowledge.</p>
-                            
-                            <div class="tech-capabilities">
-                                <div class="capability">
+                        <div class="detail-solution">
+                            <h4>Our Super RAG Solution</h4>
+                            <div class="solution-grid">
+                                <div class="solution-item">
                                     <i class="fas fa-project-diagram"></i>
-                                    <div>
-                                        <h5>Unified Knowledge Graph Creation</h5>
-                                        <p>Ingests everything—technical docs, APIs, databases, diagrams—and builds a deep, contextual knowledge graph</p>
-                                    </div>
+                                    <h5>Unified Knowledge Graph</h5>
+                                    <p>Creates interconnected understanding of all data sources</p>
                                 </div>
-                                
-                                <div class="capability">
+                                <div class="solution-item">
                                     <i class="fas fa-sync-alt"></i>
-                                    <div>
-                                        <h5>Real-Time Contextual Awareness</h5>
-                                        <p>Continuously integrates live data streams, ensuring understanding is always current, never stale</p>
-                                    </div>
+                                    <h5>Real-Time Integration</h5>
+                                    <p>Continuously updates with live data streams</p>
                                 </div>
-                                
-                                <div class="capability">
+                                <div class="solution-item">
                                     <i class="fas fa-sitemap"></i>
-                                    <div>
-                                        <h5>Deep Relational Reasoning</h5>
-                                        <p>Understands relationships, dependencies, and functions across your entire business ecosystem</p>
-                                    </div>
+                                    <h5>Deep Relational Reasoning</h5>
+                                    <p>Understands complex dependencies and relationships</p>
                                 </div>
-                                
-                                <div class="capability">
+                                <div class="solution-item">
                                     <i class="fas fa-bullseye"></i>
-                                    <div>
-                                        <h5>Precision for LLMs</h5>
-                                        <p>Drastically reduces AI hallucinations by providing structured, filtered, and relevant context</p>
-                                    </div>
+                                    <h5>Precision Context</h5>
+                                    <p>Drastically reduces AI hallucinations</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Man-O-Man Engine Details -->
-                <div class="tech-detail-card">
-                    <div class="tech-header">
-                        <div class="tech-number">2</div>
-                        <h3>The Man-O-Man Engine: The Action & Orchestration Engine</h3>
+                <!-- Man-O-Man Details -->
+                <div class="tech-detail-modern">
+                    <div class="detail-header">
+                        <div class="detail-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="detail-title">
+                            <h3>Man-O-Man: Autonomous Execution</h3>
+                            <p>Intelligent workflow orchestration and automation</p>
+                        </div>
                     </div>
                     
-                    <div class="tech-content">
-                        <div class="tech-intro">
-                            <p>If Super RAG is the brain that creates the plan, Man-O-Man is the sophisticated nervous system that executes that plan in the digital world, without human intervention.</p>
+                    <div class="detail-content">
+                        <div class="detail-intro">
+                            <p>Man-O-Man transforms high-level plans into concrete, executable actions across your entire digital infrastructure.</p>
                         </div>
                         
-                        <div class="tech-capabilities">
-                            <div class="capability">
-                                <i class="fas fa-cogs"></i>
-                                <div>
-                                    <h5>Autonomous Workflow Execution</h5>
-                                    <p>Receives high-level plans from sRAG and breaks them down into concrete, executable actions</p>
-                                </div>
+                        <div class="solution-grid">
+                            <div class="solution-item">
+                                <i class="fas fa-play-circle"></i>
+                                <h5>Autonomous Workflows</h5>
+                                <p>Breaks down complex plans into executable steps</p>
                             </div>
-                            
-                            <div class="capability">
+                            <div class="solution-item">
                                 <i class="fas fa-tools"></i>
-                                <div>
-                                    <h5>Dynamic Tool Use</h5>
-                                    <p>Interacts with vast arrays of tools and systems using their APIs—Jira, GitHub, AWS, Slack, and more</p>
-                                </div>
+                                <h5>Dynamic Tool Integration</h5>
+                                <p>Connects to Jira, GitHub, AWS, Slack, and more</p>
                             </div>
-                            
-                            <div class="capability">
+                            <div class="solution-item">
                                 <i class="fas fa-plug"></i>
-                                <div>
-                                    <h5>Seamless Systems Integration</h5>
-                                    <p>Acts as a universal adapter, connecting to the digital infrastructure you already use</p>
-                                </div>
+                                <h5>Universal Adapter</h5>
+                                <p>Seamlessly integrates with existing infrastructure</p>
                             </div>
-                            
-                            <div class="capability">
+                            <div class="solution-item">
                                 <i class="fas fa-redo"></i>
-                                <div>
-                                    <h5>Feedback Loop</h5>
-                                    <p>Results of actions are fed back into Super RAG, allowing the system to learn, adapt, and improve</p>
-                                </div>
+                                <h5>Learning Feedback Loop</h5>
+                                <p>Improves performance through continuous learning</p>
                             </div>
                         </div>
                     </div>
@@ -251,50 +604,56 @@
             </div>
             
             <!-- How They Work Together -->
-            <div class="tech-synergy">
-                <h3>How They Create Magic Together: The Skenzer Synapse Flywheel</h3>
-                <p class="synergy-intro">Neither engine is truly revolutionary on its own. The magic happens when they work in a tight, continuous loop.</p>
-                
-                <div class="example-scenario">
-                    <h4><i class="fas fa-lightbulb"></i> Example: A Critical Server Goes Down</h4>
-                    
-                    <div class="scenario-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h5>Intent (Real-Time Detection)</h5>
-                                <p><strong>Super RAG</strong>'s real-time monitoring detects the server outage from live data streams</p>
-                            </div>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h5>Reasoning (The Brain)</h5>
-                                <p><strong>Super RAG</strong> consults its knowledge graph, understands the impact, and formulates a comprehensive remediation plan</p>
-                            </div>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h5>Action (The Hands)</h5>
-                                <p><strong>Man-O-Man</strong> executes the plan: reboots servers, runs diagnostics, creates tickets, and notifies teams</p>
-                            </div>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h5>Result & Learning</h5>
-                                <p>Human engineers are notified with preliminary diagnostics done. The entire incident is recorded, making the system smarter for next time</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="synergy-section">
+                <div class="synergy-header">
+                    <h3>The Skenzer Synapse Flywheel</h3>
+                    <p>Continuous intelligence and action cycle</p>
                 </div>
                 
-                <div class="synergy-conclusion">
-                    <p>This seamless cycle—from real-time understanding to autonomous action—is what allows us to move beyond simple automation and deliver true <strong>business autonomy</strong>.</p>
+                <div class="synergy-flow">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>Detection</h5>
+                            <p>Super RAG monitors and detects issues in real-time</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>Analysis</h5>
+                            <p>Consults knowledge graph and formulates solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>Execution</h5>
+                            <p>Man-O-Man autonomously implements the solution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h5>Learning</h5>
+                            <p>Results feed back to improve future responses</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
