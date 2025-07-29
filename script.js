@@ -17,6 +17,10 @@ function initPCEyes() {
     if (pcContainer && leftPupil && rightPupil) {
         console.log('PC Eyes Init:', { pcContainer, leftPupil, rightPupil });
         
+        // Enable eye tracking immediately on page load
+        isEyeTracking = true;
+        console.log('Eye tracking enabled on page load');
+        
         // Mouse move tracking
         pcContainer.addEventListener('mousemove', handleEyeMouseMove);
         pcContainer.addEventListener('mouseenter', () => { 
@@ -295,23 +299,19 @@ function initMobileMenu() {
 }
 
 // Theme Toggle Functionality
-const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-const desktopThemeToggle = document.getElementById('desktopThemeToggle');
+const themeToggle = document.getElementById('themeToggle');
 
 // Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', currentTheme);
 
 function updateThemeIcons(theme) {
-    const mobileIcon = mobileThemeToggle ? mobileThemeToggle.querySelector('i') : null;
-    const desktopIcon = desktopThemeToggle ? desktopThemeToggle.querySelector('i') : null;
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
     
     if (theme === 'light') {
-        if (mobileIcon) mobileIcon.className = 'fas fa-sun';
-        if (desktopIcon) desktopIcon.className = 'fas fa-sun';
+        if (themeIcon) themeIcon.className = 'fas fa-sun';
     } else {
-        if (mobileIcon) mobileIcon.className = 'fas fa-moon';
-        if (desktopIcon) desktopIcon.className = 'fas fa-moon';
+        if (themeIcon) themeIcon.className = 'fas fa-moon';
     }
     
     // Update floating particles color
@@ -321,14 +321,12 @@ function updateThemeIcons(theme) {
 updateThemeIcons(currentTheme);
 
 function handleThemeToggle() {
-    // Add click animation to both toggles
-    if (mobileThemeToggle) mobileThemeToggle.classList.add('clicked');
-    if (desktopThemeToggle) desktopThemeToggle.classList.add('clicked');
+    // Add click animation to theme toggle
+    if (themeToggle) themeToggle.classList.add('clicked');
     
     // Remove animation class after animation completes
     setTimeout(() => {
-        if (mobileThemeToggle) mobileThemeToggle.classList.remove('clicked');
-        if (desktopThemeToggle) desktopThemeToggle.classList.remove('clicked');
+        if (themeToggle) themeToggle.classList.remove('clicked');
     }, 600);
     
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -339,13 +337,9 @@ function handleThemeToggle() {
     updateThemeIcons(newTheme);
 }
 
-// Theme toggle event listeners
-if (mobileThemeToggle) {
-    mobileThemeToggle.addEventListener('click', handleThemeToggle);
-}
-
-if (desktopThemeToggle) {
-    desktopThemeToggle.addEventListener('click', handleThemeToggle);
+// Theme toggle event listener
+if (themeToggle) {
+    themeToggle.addEventListener('click', handleThemeToggle);
 }
 
 
@@ -982,6 +976,14 @@ function initIndustriesSlider() {
     let autoPlayInterval;
     let isTransitioning = false;
     
+    // Touch/swipe variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+    let startTranslateX = 0;
+    let currentTranslateX = 0;
+    let prevTranslateX = 0;
+    
     // Create dots
     slides.forEach((_, index) => {
         const dot = document.createElement('div');
@@ -1088,6 +1090,70 @@ function initIndustriesSlider() {
             nextSlide();
         }
     });
+    
+    // Touch/swipe event handlers for mobile
+    function handleTouchStart(e) {
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+        startTranslateX = currentTranslateX;
+        
+        // Pause auto-play during touch
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+        }
+    }
+    
+    function handleTouchMove(e) {
+        if (!isDragging) return;
+        
+        e.preventDefault();
+        const touchX = e.touches[0].clientX;
+        const diff = touchX - touchStartX;
+        currentTranslateX = startTranslateX + diff;
+        
+        // Apply transform to current slide
+        const currentSlideElement = slides[currentSlide];
+        if (currentSlideElement) {
+            currentSlideElement.style.transform = `translateX(${currentTranslateX}px)`;
+            currentSlideElement.style.transition = 'none';
+        }
+    }
+    
+    function handleTouchEnd(e) {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        
+        // Reset transform
+        const currentSlideElement = slides[currentSlide];
+        if (currentSlideElement) {
+            currentSlideElement.style.transition = 'transform 0.3s ease';
+            currentSlideElement.style.transform = 'translateX(0)';
+        }
+        
+        // Determine swipe direction and threshold
+        const swipeThreshold = 50;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe right - go to previous slide
+                prevSlide();
+            } else {
+                // Swipe left - go to next slide
+                nextSlide();
+            }
+        }
+        
+        // Resume auto-play
+        startAutoPlay();
+    }
+    
+    // Add touch event listeners
+    slider.addEventListener('touchstart', handleTouchStart, { passive: false });
+    slider.addEventListener('touchmove', handleTouchMove, { passive: false });
+    slider.addEventListener('touchend', handleTouchEnd, { passive: false });
     
     // Initialize first slide
     updateSlider();
