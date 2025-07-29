@@ -299,10 +299,11 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 0;
+    gap: 2rem;
     margin: 0;
     padding: 0;
     position: relative;
+    align-items: center;
 }
 
 .nav-menu::before {
@@ -327,7 +328,7 @@ body {
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -335,6 +336,7 @@ body {
     margin: 0 0.1rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .nav-link::after {
