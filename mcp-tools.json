@@ -1,0 +1,122 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp",
+        "--port",
+        "3000",
+        "--headless",
+        "--viewport-size",
+        "1280,720",
+        "--browser",
+        "chromium",
+        "--output-dir",
+        "./playwright-output",
+        "--save-session",
+        "--save-trace"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "clients": {
+    "cursor": {
+      "mcpServers": {
+        "playwright": {
+          "command": "npx",
+          "args": ["@playwright/mcp", "--port", "3000", "--headless"],
+          "env": {}
+        }
+      }
+    },
+    "claude": {
+      "mcpServers": {
+        "playwright": {
+          "command": "npx",
+          "args": ["@playwright/mcp", "--port", "3000", "--headless"],
+          "env": {}
+        }
+      }
+    },
+    "vscode": {
+      "mcpServers": {
+        "playwright": {
+          "command": "npx",
+          "args": ["@playwright/mcp", "--port", "3000", "--headless"],
+          "env": {}
+        }
+      }
+    }
+  },
+  "tools": {
+    "playwright": {
+      "name": "playwright",
+      "description": "Playwright MCP server for browser automation and testing",
+      "version": "1.0.0",
+      "author": "Playwright Team",
+      "repository": "https://github.com/microsoft/playwright",
+      "license": "Apache-2.0",
+      "capabilities": [
+        "browser_automation",
+        "screenshot_capture",
+        "page_interaction",
+        "mobile_testing",
+        "cross_browser_testing"
+      ],
+      "commands": [
+        "browser/create",
+        "browser/close",
+        "page/create",
+        "page/navigate",
+        "page/click",
+        "page/type",
+        "page/screenshot",
+        "page/getText",
+        "page/setViewportSize",
+        "page/isVisible"
+      ]
+    }
+  },
+  "settings": {
+    "defaultBrowser": "chromium",
+    "defaultViewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "headless": true,
+    "outputDirectory": "./playwright-output",
+    "saveSession": true,
+    "saveTrace": true,
+    "timeout": 30000,
+    "retries": 3
+  },
+  "examples": {
+    "mobile_menu_test": {
+      "description": "Test mobile menu functionality",
+      "steps": [
+        "Set viewport to mobile size (375x667)",
+        "Navigate to website",
+        "Check if hamburger menu is visible",
+        "Click hamburger menu",
+        "Verify menu opens",
+        "Test theme toggle in menu",
+        "Take screenshot"
+      ]
+    },
+    "cross_page_test": {
+      "description": "Test all pages of the website",
+      "steps": [
+        "Navigate to homepage",
+        "Take screenshot",
+        "Navigate to about page",
+        "Take screenshot",
+        "Navigate to product page",
+        "Take screenshot",
+        "Navigate to contact page",
+        "Take screenshot"
+      ]
+    }
+  }
+} 
