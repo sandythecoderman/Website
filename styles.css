@@ -8743,237 +8743,139 @@ body {
     pointer-events: none;
 }
 
-/* Super RAG Compact Section */
-.rag-compact-section {
-    margin: 60px 0;
-    padding: 40px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.rag-compact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 30%, var(--accent-color-rgba) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, var(--accent-color-rgba) 0%, transparent 40%);
-    opacity: 0.08;
-    animation: rag-bg-float 15s ease-in-out infinite;
-}
-
-.rag-header {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
-}
-
-.rag-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: rag-title-glow 3s ease-in-out infinite;
-}
-
-.rag-subtitle {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto;
+/* Super RAG Technology Section - Clean & Minimalistic */
+.super-rag-section {
+    padding: 80px 0;
+    background: var(--primary-bg);
     position: relative;
 }
 
-.rag-grid {
+.rag-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rag-text {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.rag-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.rag-features {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
 }
 
-.rag-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 24px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+.rag-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
 }
 
-.rag-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--accent-color-rgba) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+.rag-feature:hover {
+    transform: translateX(8px);
 }
 
-.rag-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--card-hover-border);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.rag-card:hover::before {
-    opacity: 0.1;
-}
-
-.rag-icon-wrapper {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 16px;
-}
-
-.rag-icon {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-    border-radius: 16px;
+.rag-feature .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-color);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
     position: relative;
-    z-index: 2;
-    transition: all 0.4s ease;
 }
 
-.rag-card:hover .rag-icon {
-    transform: scale(1.1) rotate(5deg);
+.rag-feature:hover .feature-icon {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
 }
 
-.rag-icon i {
-    font-size: 1.4rem;
-    color: white;
-    transition: all 0.4s ease;
-}
-
-.rag-card:hover .rag-icon i {
-    transform: scale(1.2);
-}
-
-.icon-glow {
+.rag-feature .feature-icon::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, var(--accent-color-rgba) 0%, transparent 70%);
-    border-radius: 50%;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-hover));
+    border-radius: 14px;
+    z-index: -1;
     opacity: 0;
-    animation: icon-glow-pulse 2s ease-in-out infinite;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
-.rag-card:hover .icon-glow {
+.rag-feature:hover .feature-icon::before {
     opacity: 1;
 }
 
-.rag-card h4 {
+.rag-feature .feature-icon i {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.rag-feature .feature-text h4 {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 8px;
-    transition: color 0.3s ease;
 }
 
-.rag-card p {
-    font-size: 0.9rem;
+.rag-feature .feature-text p {
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    transition: color 0.3s ease;
 }
 
-.rag-visual-compact {
+.rag-visual {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     position: relative;
-    z-index: 2;
 }
 
-.synapse-core {
+.rag-animation {
+    width: 280px;
+    height: 280px;
     position: relative;
+}
+
+.neural-network {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 200px;
     height: 200px;
 }
 
-.core-pulse {
+.node {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
+    width: 10px;
+    height: 10px;
     background: var(--accent-color);
     border-radius: 50%;
-    animation: core-pulse-animation 2s ease-in-out infinite;
-}
-
-.core-rings {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.ring {
-    position: absolute;
-    border: 2px solid var(--accent-color);
-    border-radius: 50%;
-    opacity: 0.3;
-}
-
-.ring-1 {
-    width: 60px;
-    height: 60px;
-    animation: ring-pulse 3s ease-in-out infinite;
-}
-
-.ring-2 {
-    width: 100px;
-    height: 100px;
-    animation: ring-pulse 3s ease-in-out infinite 1s;
-}
-
-.ring-3 {
-    width: 140px;
-    height: 140px;
-    animation: ring-pulse 3s ease-in-out infinite 2s;
-}
-
-.data-nodes {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.data-node {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    animation: node-float 4s ease-in-out infinite;
+    animation: node-pulse 3s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
 .node-1 { top: 10%; left: 20%; animation-delay: 0s; }
@@ -8983,22 +8885,15 @@ body {
 .node-5 { top: 50%; left: 5%; animation-delay: 0.75s; }
 .node-6 { top: 50%; right: 5%; animation-delay: 1.25s; }
 
-.connection-lines {
+.connection {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.line {
-    position: absolute;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, var(--accent-color), transparent);
-    animation: line-flow 4s ease-in-out infinite;
+    animation: connection-flow 4s ease-in-out infinite;
+    border-radius: 1px;
 }
 
-.line-1 {
+.conn-1 {
     top: 15%;
     left: 25%;
     width: 50%;
@@ -9006,7 +8901,7 @@ body {
     animation-delay: 0s;
 }
 
-.line-2 {
+.conn-2 {
     top: 15%;
     right: 25%;
     width: 50%;
@@ -9014,7 +8909,7 @@ body {
     animation-delay: 0.5s;
 }
 
-.line-3 {
+.conn-3 {
     bottom: 15%;
     left: 25%;
     width: 50%;
@@ -9022,7 +8917,7 @@ body {
     animation-delay: 1s;
 }
 
-.line-4 {
+.conn-4 {
     bottom: 15%;
     right: 25%;
     width: 50%;
@@ -9030,7 +8925,7 @@ body {
     animation-delay: 1.5s;
 }
 
-.line-5 {
+.conn-5 {
     top: 50%;
     left: 10%;
     width: 80%;
@@ -9038,7 +8933,7 @@ body {
     animation-delay: 0.75s;
 }
 
-.floating-particles {
+.data-flow {
     position: absolute;
     top: 0;
     left: 0;
@@ -9046,103 +8941,76 @@ body {
     bottom: 0;
 }
 
-.particle {
+.data-particle {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 4px;
+    height: 4px;
     background: var(--accent-color);
     border-radius: 50%;
-    animation: particle-float 6s linear infinite;
+    animation: data-particle-flow 6s linear infinite;
+    box-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
 }
 
-.p1 { top: 20%; left: 20%; animation-delay: 0s; }
-.p2 { top: 60%; right: 20%; animation-delay: 2s; }
-.p3 { bottom: 20%; left: 50%; animation-delay: 4s; }
-.p4 { top: 40%; right: 40%; animation-delay: 1s; }
+.data-particle:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.data-particle:nth-child(2) {
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.data-particle:nth-child(3) {
+    bottom: 20%;
+    left: 50%;
+    animation-delay: 4s;
+}
 
 /* Light Mode Adjustments */
-[data-theme="light"] .rag-card {
-    background: rgba(139, 92, 246, 0.05);
-    border-color: rgba(139, 92, 246, 0.1);
+[data-theme="light"] .rag-feature .feature-icon {
+    background: #8b5cf6;
 }
 
-[data-theme="light"] .rag-card:hover {
-    border-color: rgba(139, 92, 246, 0.2);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+[data-theme="light"] .rag-feature:hover .feature-icon {
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
 }
 
-[data-theme="light"] .rag-icon {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+[data-theme="light"] .rag-feature .feature-icon::before {
+    background: linear-gradient(45deg, #8b5cf6, #7c3aed);
 }
 
-/* Sophisticated Animations */
-@keyframes rag-bg-float {
+[data-theme="light"] .node {
+    background: #8b5cf6;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+[data-theme="light"] .connection {
+    background: linear-gradient(90deg, #8b5cf6, transparent);
+}
+
+[data-theme="light"] .data-particle {
+    background: #8b5cf6;
+    box-shadow: 0 0 6px rgba(139, 92, 246, 0.6);
+}
+
+/* Clean Animations */
+@keyframes node-pulse {
     0%, 100% { 
-        transform: translate(0, 0) scale(1);
-        opacity: 0.08;
-    }
-    50% { 
-        transform: translate(-10px, -10px) scale(1.1);
-        opacity: 0.12;
-    }
-}
-
-@keyframes rag-title-glow {
-    0%, 100% { 
-        filter: brightness(1);
-    }
-    50% { 
-        filter: brightness(1.2);
-    }
-}
-
-@keyframes icon-glow-pulse {
-    0%, 100% { 
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.3;
-    }
-    50% { 
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.6;
-    }
-}
-
-@keyframes core-pulse-animation {
-    0%, 100% { 
-        transform: translate(-50%, -50%) scale(1);
+        transform: scale(1);
         opacity: 0.8;
     }
     50% { 
-        transform: translate(-50%, -50%) scale(1.3);
+        transform: scale(1.3);
         opacity: 1;
     }
 }
 
-@keyframes ring-pulse {
+@keyframes connection-flow {
     0%, 100% { 
-        transform: scale(1);
-        opacity: 0.3;
-    }
-    50% { 
-        transform: scale(1.1);
-        opacity: 0.6;
-    }
-}
-
-@keyframes node-float {
-    0%, 100% { 
-        transform: translateY(0) scale(1);
-        opacity: 0.7;
-    }
-    50% { 
-        transform: translateY(-5px) scale(1.2);
-        opacity: 1;
-    }
-}
-
-@keyframes line-flow {
-    0%, 100% { 
-        opacity: 0.3;
+        opacity: 0.4;
         transform: scaleX(0.8);
     }
     50% { 
@@ -9151,7 +9019,7 @@ body {
     }
 }
 
-@keyframes particle-float {
+@keyframes data-particle-flow {
     0% {
         transform: translate(0, 0);
         opacity: 0;
@@ -9163,92 +9031,80 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translate(80px, -80px);
+        transform: translate(100px, -100px);
         opacity: 0;
     }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .rag-compact-section {
-        margin: 40px 0;
-        padding: 30px 0;
+    .super-rag-section {
+        padding: 60px 0;
     }
     
-    .rag-title {
-        font-size: 1.8rem;
-    }
-    
-    .rag-subtitle {
-        font-size: 1rem;
-    }
-    
-    .rag-grid {
+    .rag-content {
         grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .rag-features {
         gap: 20px;
     }
     
-    .rag-card {
-        padding: 20px;
+    .rag-feature {
+        gap: 16px;
     }
     
-    .rag-icon-wrapper {
-        width: 50px;
-        height: 50px;
+    .rag-feature .feature-icon {
+        width: 40px;
+        height: 40px;
     }
     
-    .rag-icon i {
-        font-size: 1.2rem;
-    }
-    
-    .synapse-core {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .ring-1 { width: 45px; height: 45px; }
-    .ring-2 { width: 75px; height: 75px; }
-    .ring-3 { width: 105px; height: 105px; }
-}
-
-@media (max-width: 480px) {
-    .rag-compact-section {
-        margin: 30px 0;
-        padding: 20px 0;
-    }
-    
-    .rag-title {
-        font-size: 1.5rem;
-    }
-    
-    .rag-subtitle {
-        font-size: 0.95rem;
-    }
-    
-    .rag-card {
-        padding: 16px;
-    }
-    
-    .rag-card h4 {
+    .rag-feature .feature-icon i {
         font-size: 1rem;
     }
     
-    .rag-card p {
-        font-size: 0.85rem;
+    .rag-animation {
+        width: 220px;
+        height: 220px;
     }
     
-    .synapse-core {
+    .neural-network {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .super-rag-section {
+        padding: 40px 0;
+    }
+    
+    .rag-description {
+        font-size: 1rem;
+    }
+    
+    .rag-feature .feature-text h4 {
+        font-size: 1rem;
+    }
+    
+    .rag-feature .feature-text p {
+        font-size: 0.9rem;
+    }
+    
+    .rag-animation {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .neural-network {
         width: 120px;
         height: 120px;
     }
     
-    .ring-1 { width: 35px; height: 35px; }
-    .ring-2 { width: 60px; height: 60px; }
-    .ring-3 { width: 85px; height: 85px; }
-    
-    .data-node {
-        width: 6px;
-        height: 6px;
+    .node {
+        width: 8px;
+        height: 8px;
     }
 }
 
