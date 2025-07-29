@@ -270,19 +270,29 @@ function initDynamicGraph() {
 }
 
 // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        console.log('Mobile menu elements found:', { hamburger, navMenu });
+        
+        hamburger.addEventListener('click', () => {
+            console.log('Hamburger clicked');
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            console.log('Menu class after toggle:', navMenu.className);
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+    } else {
+        console.log('Mobile menu elements not found:', { hamburger, navMenu });
+    }
+}
 
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
@@ -351,6 +361,9 @@ function updateParticlesColor(theme) {
 
 // Initialize functionality
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Mobile Menu
+    initMobileMenu();
+    
     // Initialize PC Eyes functionality
     initPCEyes();
     initPCHoverEffects();
@@ -885,45 +898,8 @@ function initNavbar() {
             });
         }
         
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
-                console.log('Hamburger clicked');
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-                
-                // Animate hamburger bars
-                const bars = hamburger.querySelectorAll('.bar');
-                bars.forEach((bar, index) => {
-                    if (hamburger.classList.contains('active')) {
-                        if (index === 0) bar.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                        if (index === 1) bar.style.opacity = '0';
-                        if (index === 2) bar.style.transform = 'rotate(-45deg) translate(7px, -6px)';
-                    } else {
-                        bar.style.transform = 'none';
-                        bar.style.opacity = '1';
-                    }
-                });
-            });
-            
-            // Close menu when clicking on a link
-            const navLinks = navMenu.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                    // Reset hamburger bars
-                    const bars = hamburger.querySelectorAll('.bar');
-                    bars.forEach(bar => {
-                        bar.style.transform = 'none';
-                        bar.style.opacity = '1';
-                    });
-                });
-            });
-        }
+        // Mobile menu toggle - removed duplicate event listener
+        // This is now handled by initMobileMenu() function
     }
 }
 
