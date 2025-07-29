@@ -2294,6 +2294,9 @@ body {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 1000;
+        margin-right: 10px;
     }
 
     .nav-menu {
@@ -2306,6 +2309,7 @@ body {
         text-align: center;
         transition: 0.3s;
         padding: 2rem 0;
+        z-index: 998;
     }
 
     .nav-menu.active {
@@ -2429,7 +2433,9 @@ body {
     .theme-toggle {
         width: 40px;
         height: 40px;
-        margin-left: 15px;
+        margin-left: 10px;
+        position: relative;
+        z-index: 999;
     }
 
     .style-selector {
