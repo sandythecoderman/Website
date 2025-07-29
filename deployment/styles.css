@@ -2449,8 +2449,8 @@ body {
     }
 
     .hero-visual {
-        width: 350px;
-        height: 350px;
+        width: 200px;
+        height: 200px;
     }
     
     .style-selector {
@@ -2500,41 +2500,41 @@ body {
     }
     
     .pc-monitor {
-        width: 220px;
-        height: 160px;
+        width: 140px;
+        height: 100px;
     }
     
     .eye {
-        width: 35px;
-        height: 35px;
+        width: 22px;
+        height: 22px;
     }
     
     .eye-inner {
-        width: 25px;
-        height: 25px;
+        width: 16px;
+        height: 16px;
         overflow: visible;
     }
     
     .pupil {
-        width: 12px;
-        height: 12px;
+        width: 8px;
+        height: 8px;
         position: relative;
         display: block;
     }
     
     .waveform-mouth {
-        width: 80px;
-        height: 15px;
-        bottom: 30px;
+        width: 50px;
+        height: 10px;
+        bottom: 20px;
     }
     
     .waveform-line {
-        height: 3px;
+        height: 2px;
     }
     
     .monitor-screw {
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
     }
 
     .terminal-window {
@@ -9102,7 +9102,7 @@ body {
     }
     
     .hero-content {
-        order: 2;
+        order: 1;
         max-width: 100%;
     }
     
@@ -9119,18 +9119,18 @@ body {
     }
     
     .hero-visual {
-        order: 1;
-        max-width: 180px;
+        order: 2;
+        max-width: 120px;
         margin: 0 auto;
     }
     
     .pc-container {
-        transform: scale(0.6);
+        transform: scale(0.4);
     }
     
     /* PC Eyes Animation */
     .pc-eyes-animation {
-        transform: scale(0.7);
+        transform: scale(0.5);
     }
     
     /* Lines Background */
