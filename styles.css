@@ -9047,10 +9047,214 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Comprehensive Mobile Responsive Design */
 @media (max-width: 768px) {
+    /* Global Mobile Adjustments */
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Navigation */
+    .navbar {
+        padding: 12px 20px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.4rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--primary-bg);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 40px;
+        transition: left 0.3s ease;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        margin: 0 0 24px 0;
+        font-size: 1.1rem;
+        padding: 12px 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 60px 0 40px;
+        min-height: 80vh;
+    }
+    
+    .hero-container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 2;
+        max-width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+    
+    .hero-visual {
+        order: 1;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .pc-container {
+        transform: scale(0.8);
+    }
+    
+    /* PC Eyes Animation */
+    .pc-eyes-animation {
+        transform: scale(0.9);
+    }
+    
+    /* Lines Background */
+    .lines-bg {
+        opacity: 0.3;
+    }
+    
+    /* Sections */
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+    }
+    
+    .subsection-title {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+    
+    /* Problem Section */
+    .problem-section {
+        padding: 40px 0;
+    }
+    
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .problem-card {
+        padding: 24px 20px;
+    }
+    
+    .problem-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .problem-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* Solution Section */
+    .solution-section {
+        padding: 40px 0;
+    }
+    
+    .solution-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .solution-text {
+        order: 2;
+        text-align: center;
+    }
+    
+    .solution-diagram {
+        order: 1;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .synapse-diagram {
+        transform: scale(0.8);
+    }
+    
+    /* Impact Section */
+    .impact-section {
+        padding: 40px 0;
+    }
+    
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .impact-card {
+        padding: 24px 20px;
+    }
+    
+    .impact-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .impact-card .percentage {
+        font-size: 2.5rem;
+    }
+    
+    /* Technology Section */
+    .technology-section {
+        padding: 40px 0;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tech-card {
+        padding: 24px 20px;
+    }
+    
+    .tech-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tech-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .tech-detail-card {
+        padding: 20px 16px;
+    }
+    
+    /* Super RAG Section */
     .super-rag-section {
-        padding: 50px 0;
+        padding: 40px 0;
     }
     
     .rag-header .section-title {
@@ -9111,11 +9315,221 @@ body {
         width: 220px;
         height: 70px;
     }
+    
+    /* Product Page Specific */
+    .product-hero {
+        padding: 40px 0;
+    }
+    
+    .product-hero-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .product-hero-text {
+        order: 2;
+    }
+    
+    .product-hero-visual {
+        order: 1;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .product-hero-title {
+        font-size: 2rem;
+    }
+    
+    .product-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .synergy-section-compact {
+        padding: 40px 0;
+    }
+    
+    .synergy-flow-compact {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .flow-step-compact {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .step-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .step-icon i {
+        font-size: 1.4rem;
+    }
+    
+    .step-content-compact h3 {
+        font-size: 1.2rem;
+    }
+    
+    .step-content-compact p {
+        font-size: 0.9rem;
+    }
+    
+    /* Contact Page */
+    .contact-section {
+        padding: 40px 0;
+    }
+    
+    .contact-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contact-form {
+        order: 2;
+        padding: 24px 20px;
+    }
+    
+    .contact-info {
+        order: 1;
+        text-align: center;
+    }
+    
+    .contact-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+    }
+    
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.4rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    /* Buttons */
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .theme-toggle i {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
+    /* Extra Small Mobile */
+    .container {
+        padding: 0 16px;
+    }
+    
+    /* Navigation */
+    .navbar {
+        padding: 10px 16px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 50px 0 30px;
+        min-height: 70vh;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .hero-visual {
+        max-width: 240px;
+    }
+    
+    .pc-container {
+        transform: scale(0.7);
+    }
+    
+    /* Sections */
+    .section {
+        padding: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .subsection-title {
+        font-size: 1.2rem;
+    }
+    
+    /* Cards */
+    .problem-card,
+    .impact-card,
+    .tech-card,
+    .rag-feature-card {
+        padding: 20px 16px;
+    }
+    
+    .problem-card h3,
+    .tech-card h3,
+    .rag-feature-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .problem-card p,
+    .tech-card p,
+    .rag-feature-card p {
+        font-size: 0.85rem;
+    }
+    
+    /* Super RAG Section */
     .super-rag-section {
-        padding: 40px 0;
+        padding: 30px 0;
     }
     
     .rag-header .section-title {
@@ -9183,6 +9597,109 @@ body {
     .data-point {
         width: 4px;
         height: 4px;
+    }
+    
+    /* Product Page */
+    .product-hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .product-hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .step-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .step-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .step-content-compact h3 {
+        font-size: 1.1rem;
+    }
+    
+    .step-content-compact p {
+        font-size: 0.85rem;
+    }
+    
+    /* Contact Page */
+    .contact-form {
+        padding: 20px 16px;
+    }
+    
+    .contact-info h2 {
+        font-size: 1.6rem;
+    }
+    
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 30px 0 16px;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Buttons */
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .theme-toggle i {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Very Small Mobile */
+    .container {
+        padding: 0 12px;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .rag-feature-card,
+    .problem-card,
+    .impact-card,
+    .tech-card {
+        padding: 16px 12px;
+    }
+    
+    .feature-icon-large {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .feature-icon-large i {
+        font-size: 1.1rem;
     }
 }
 
