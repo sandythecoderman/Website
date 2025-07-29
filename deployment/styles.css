@@ -496,8 +496,8 @@ body {
     overflow: hidden;
 }
 
-/* Matrix Background Animation */
-.matrix-bg {
+/* Dynamic Lines Background */
+.lines-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -508,32 +508,75 @@ body {
     overflow: hidden;
 }
 
-#matrixCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
+.lines-container {
+    position: relative;
     width: 100%;
     height: 100%;
-    opacity: 0.25;
-    filter: blur(0.3px);
 }
 
-.matrix-overlay {
+.line {
     position: absolute;
-    top: 0;
-    left: 0;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    height: 1px;
+    opacity: 0.1;
+    animation: line-flow 8s linear infinite;
+}
+
+.line-1 {
+    top: 20%;
+    left: -100%;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-    pointer-events: none;
+    animation-delay: 0s;
 }
 
-[data-theme="light"] .matrix-overlay {
-    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(255, 255, 255, 0.3) 100%);
+.line-2 {
+    top: 40%;
+    left: -100%;
+    width: 80%;
+    animation-delay: 2s;
 }
 
-[data-theme="light"] #matrixCanvas {
-    opacity: 0.6;
+.line-3 {
+    top: 60%;
+    left: -100%;
+    width: 90%;
+    animation-delay: 4s;
+}
+
+.line-4 {
+    top: 80%;
+    left: -100%;
+    width: 70%;
+    animation-delay: 6s;
+}
+
+.line-5 {
+    top: 30%;
+    left: -100%;
+    width: 85%;
+    animation-delay: 1s;
+}
+
+/* Light Mode Adjustments */
+[data-theme="light"] .line {
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+}
+
+@keyframes line-flow {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.1;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
 }
 
 /* Ensure content stays above background */
@@ -629,66 +672,9 @@ body {
     overflow: hidden;
 }
 
-/* Style Selector */
-.style-selector {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.5rem;
-    z-index: 10;
-}
 
-.style-btn {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--text-secondary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    font-weight: 500;
-}
 
-.style-btn:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-    transform: translateY(-2px);
-}
 
-.style-btn.active {
-    background: var(--accent-color);
-    color: var(--primary-bg);
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-}
-
-[data-theme="light"] .style-btn.active {
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-}
-
-/* Visual Components */
-.visual-component {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.visual-component.active {
-    opacity: 1;
-    visibility: visible;
-}
 
 /* Floating Icons Animation */
 .floating-icons {

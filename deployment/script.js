@@ -331,43 +331,8 @@ function updateParticlesColor(theme) {
     });
 }
 
-// Simple Style Selector
+// Initialize functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const styleButtons = document.querySelectorAll('.style-btn');
-    const visualComponents = document.querySelectorAll('.visual-component');
-
-    styleButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const selectedStyle = button.dataset.style;
-            
-            // Remove active class from all buttons and components
-            styleButtons.forEach(btn => btn.classList.remove('active'));
-            visualComponents.forEach(comp => comp.classList.remove('active'));
-            
-            // Add active class to selected button and component
-            button.classList.add('active');
-            document.getElementById(selectedStyle).classList.add('active');
-        });
-    });
-
-    // Typing animation for terminal
-    const typingTexts = document.querySelectorAll('.typing-text');
-    typingTexts.forEach((element, index) => {
-        const text = element.dataset.text;
-        let i = 0;
-        
-        setTimeout(() => {
-            const typeWriter = () => {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            };
-            typeWriter();
-        }, (index + 1) * 1000);
-    });
-    
     // Initialize PC Eyes functionality
     initPCEyes();
     initPCHoverEffects();
@@ -820,132 +785,7 @@ function revealOnScroll() {
     });
 }
 
-// Matrix Background Animation
-let matrixCanvas, matrixCtx;
-let matrixChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-let matrixDrops = [];
-let mouseX = 0, mouseY = 0;
-let isMouseMoving = false;
-let mouseTimeout;
 
-function initMatrixAnimation() {
-    matrixCanvas = document.getElementById('matrixCanvas');
-    if (!matrixCanvas) return;
-    
-    matrixCtx = matrixCanvas.getContext('2d');
-    
-        // Set canvas size
-    function resizeCanvas() {
-        matrixCanvas.width = window.innerWidth;
-        matrixCanvas.height = window.innerHeight;
-        
-        // Recalculate columns after resize
-        const fontSize = currentTheme === 'light' ? 18 : 16;
-        const newColumns = Math.floor(matrixCanvas.width / fontSize);
-        
-        // Adjust drops array if needed
-        if (newColumns > matrixDrops.length) {
-            for (let i = matrixDrops.length; i < newColumns; i++) {
-                matrixDrops[i] = 1;
-            }
-        } else if (newColumns < matrixDrops.length) {
-            matrixDrops.length = newColumns;
-        }
-    }
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Initialize drops
-    const fontSize = currentTheme === 'light' ? 18 : 16;
-    const columns = Math.floor(matrixCanvas.width / fontSize);
-
-    for (let i = 0; i < columns; i++) {
-        matrixDrops[i] = 1;
-    }
-    
-    // Mouse tracking
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        isMouseMoving = true;
-        
-        clearTimeout(mouseTimeout);
-        mouseTimeout = setTimeout(() => {
-            isMouseMoving = false;
-        }, 100);
-    });
-    
-    // Start animation
-    animateMatrix();
-}
-
-function animateMatrix() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const textColor = currentTheme === 'light' ? '#4c1d95' : '#00ff88';
-
-    // Clear canvas with fade effect
-    if (currentTheme === 'light') {
-        matrixCtx.fillStyle = `rgba(255, 255, 255, 0.05)`;
-    } else {
-        matrixCtx.fillStyle = `rgba(0, 0, 0, 0.05)`;
-    }
-    matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-    
-    // Set text properties
-    matrixCtx.fillStyle = textColor;
-    matrixCtx.font = currentTheme === 'light' ? '18px monospace' : '16px monospace';
-    
-    const fontSize = currentTheme === 'light' ? 18 : 16;
-    const columns = Math.floor(matrixCanvas.width / fontSize);
-    
-    // Ensure we have enough drops for all columns
-    while (matrixDrops.length < columns) {
-        matrixDrops.push(1);
-    }
-    
-    // Draw matrix characters
-    for (let i = 0; i < columns; i++) {
-        // Get random character
-        const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
-        
-        // Calculate position
-        const x = i * fontSize + (fontSize / 2);
-        const y = matrixDrops[i] * fontSize;
-        
-        // Mouse interaction - intensify around cursor
-        const distanceFromMouse = Math.sqrt((mouseX - x) * (mouseX - x) + (mouseY - y) * (mouseY - y));
-        const mouseRadius = 100;
-        
-        if (distanceFromMouse < mouseRadius && isMouseMoving) {
-            // Intensify effect around mouse
-            matrixCtx.fillStyle = currentTheme === 'light' ? 
-                `rgba(76, 29, 149, ${0.9 + (mouseRadius - distanceFromMouse) / mouseRadius * 0.1})` :
-                `rgba(0, 255, 136, ${0.8 + (mouseRadius - distanceFromMouse) / mouseRadius * 0.2})`;
-            
-            // Add glow effect
-            matrixCtx.shadowBlur = currentTheme === 'light' ? 15 : 10;
-            matrixCtx.shadowColor = textColor;
-        } else {
-            matrixCtx.fillStyle = textColor;
-            matrixCtx.shadowBlur = 0;
-        }
-        
-        // Draw character
-        matrixCtx.fillText(char, x, y);
-        
-        // Reset shadow
-        matrixCtx.shadowBlur = 0;
-        
-        // Move drop down
-        if (y > matrixCanvas.height && Math.random() > 0.975) {
-            matrixDrops[i] = 0;
-        }
-        matrixDrops[i]++;
-    }
-    
-    requestAnimationFrame(animateMatrix);
-}
 
 // Navbar functionality
 function initNavbar() {
@@ -1087,8 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealOnScroll();
     
-    // Initialize Matrix Animation
-    initMatrixAnimation();
+
     
     // Initialize Navbar
     initNavbar();
