@@ -420,6 +420,7 @@ body {
     border-radius: 2px;
     position: relative;
     z-index: 1;
+    display: block;
 }
 
 .hamburger:hover .bar {
@@ -9099,6 +9100,10 @@ body {
         margin-right: 15px;
         width: 30px;
         height: 30px;
+        cursor: pointer;
+        background: rgba(0, 255, 136, 0.1);
+        border-radius: 8px;
+        padding: 5px;
     }
     
     /* Hero Section */
