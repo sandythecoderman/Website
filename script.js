@@ -295,19 +295,23 @@ function initMobileMenu() {
 }
 
 // Theme Toggle Functionality
-const themeToggle = document.getElementById('themeToggle');
+const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+const desktopThemeToggle = document.getElementById('desktopThemeToggle');
 
 // Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', currentTheme);
 
 function updateThemeIcons(theme) {
-    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+    const mobileIcon = mobileThemeToggle ? mobileThemeToggle.querySelector('i') : null;
+    const desktopIcon = desktopThemeToggle ? desktopThemeToggle.querySelector('i') : null;
     
     if (theme === 'light') {
-        if (themeIcon) themeIcon.className = 'fas fa-sun';
+        if (mobileIcon) mobileIcon.className = 'fas fa-sun';
+        if (desktopIcon) desktopIcon.className = 'fas fa-sun';
     } else {
-        if (themeIcon) themeIcon.className = 'fas fa-moon';
+        if (mobileIcon) mobileIcon.className = 'fas fa-moon';
+        if (desktopIcon) desktopIcon.className = 'fas fa-moon';
     }
     
     // Update floating particles color
@@ -317,12 +321,14 @@ function updateThemeIcons(theme) {
 updateThemeIcons(currentTheme);
 
 function handleThemeToggle() {
-    // Add click animation to theme toggle
-    if (themeToggle) themeToggle.classList.add('clicked');
+    // Add click animation to both toggles
+    if (mobileThemeToggle) mobileThemeToggle.classList.add('clicked');
+    if (desktopThemeToggle) desktopThemeToggle.classList.add('clicked');
     
     // Remove animation class after animation completes
     setTimeout(() => {
-        if (themeToggle) themeToggle.classList.remove('clicked');
+        if (mobileThemeToggle) mobileThemeToggle.classList.remove('clicked');
+        if (desktopThemeToggle) desktopThemeToggle.classList.remove('clicked');
     }, 600);
     
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -333,9 +339,13 @@ function handleThemeToggle() {
     updateThemeIcons(newTheme);
 }
 
-// Theme toggle event listener
-if (themeToggle) {
-    themeToggle.addEventListener('click', handleThemeToggle);
+// Theme toggle event listeners
+if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', handleThemeToggle);
+}
+
+if (desktopThemeToggle) {
+    desktopThemeToggle.addEventListener('click', handleThemeToggle);
 }
 
 
