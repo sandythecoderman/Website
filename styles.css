@@ -9133,6 +9133,45 @@ body {
         transform: translateX(5px);
     }
     
+    /* Mobile Theme Toggle */
+    .mobile-theme-toggle {
+        margin-top: 20px;
+        padding: 15px 0;
+        border-top: 1px solid var(--border-color);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .mobile-theme-toggle .theme-toggle {
+        background: rgba(0, 255, 136, 0.1);
+        border: 1px solid rgba(0, 255, 136, 0.3);
+        border-radius: 12px;
+        padding: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-theme-toggle .theme-toggle:hover {
+        background: rgba(0, 255, 136, 0.2);
+        border-color: rgba(0, 255, 136, 0.5);
+        transform: scale(1.05);
+    }
+    
+    /* Hide desktop theme toggle on mobile */
+    .desktop-theme-toggle {
+        display: none;
+    }
+    
+    /* Show desktop theme toggle on larger screens */
+    @media (min-width: 769px) {
+        .desktop-theme-toggle {
+            display: flex;
+        }
+        
+        .mobile-theme-toggle {
+            display: none;
+        }
+    }
+    
     .hamburger {
         display: block;
         position: relative;

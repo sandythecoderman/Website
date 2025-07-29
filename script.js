@@ -286,21 +286,39 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
 
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
-const themeIcon = themeToggle.querySelector('i');
+const desktopThemeToggle = document.getElementById('desktopThemeToggle');
 
 // Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
 
-// Theme toggle event listener
-themeToggle.addEventListener('click', () => {
-    // Add click animation
-    themeToggle.classList.add('clicked');
+function updateThemeIcons(theme) {
+    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+    const desktopThemeIcon = desktopThemeToggle ? desktopThemeToggle.querySelector('i') : null;
+    
+    if (theme === 'light') {
+        if (themeIcon) themeIcon.className = 'fas fa-sun';
+        if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-sun';
+    } else {
+        if (themeIcon) themeIcon.className = 'fas fa-moon';
+        if (desktopThemeIcon) desktopThemeIcon.className = 'fas fa-moon';
+    }
+    
+    // Update floating particles color
+    updateParticlesColor(theme);
+}
+
+updateThemeIcons(currentTheme);
+
+function handleThemeToggle() {
+    // Add click animation to both toggles
+    if (themeToggle) themeToggle.classList.add('clicked');
+    if (desktopThemeToggle) desktopThemeToggle.classList.add('clicked');
     
     // Remove animation class after animation completes
     setTimeout(() => {
-        themeToggle.classList.remove('clicked');
+        if (themeToggle) themeToggle.classList.remove('clicked');
+        if (desktopThemeToggle) desktopThemeToggle.classList.remove('clicked');
     }, 600);
     
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -308,19 +326,19 @@ themeToggle.addEventListener('click', () => {
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-});
-
-function updateThemeIcon(theme) {
-    if (theme === 'light') {
-        themeIcon.className = 'fas fa-sun';
-    } else {
-        themeIcon.className = 'fas fa-moon';
-    }
-    
-    // Update floating particles color
-    updateParticlesColor(theme);
+    updateThemeIcons(newTheme);
 }
+
+// Theme toggle event listeners
+if (themeToggle) {
+    themeToggle.addEventListener('click', handleThemeToggle);
+}
+
+if (desktopThemeToggle) {
+    desktopThemeToggle.addEventListener('click', handleThemeToggle);
+}
+
+
 
 function updateParticlesColor(theme) {
     const particles = document.querySelectorAll('.floating-particle');
@@ -873,6 +891,7 @@ function initNavbar() {
         
         if (hamburger && navMenu) {
             hamburger.addEventListener('click', function() {
+                console.log('Hamburger clicked');
                 navMenu.classList.toggle('active');
                 hamburger.classList.toggle('active');
                 
@@ -887,6 +906,21 @@ function initNavbar() {
                         bar.style.transform = 'none';
                         bar.style.opacity = '1';
                     }
+                });
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = navMenu.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    // Reset hamburger bars
+                    const bars = hamburger.querySelectorAll('.bar');
+                    bars.forEach(bar => {
+                        bar.style.transform = 'none';
+                        bar.style.opacity = '1';
+                    });
                 });
             });
         }
