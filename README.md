@@ -1,130 +1,102 @@
 # Skenzer Website
 
-A modern, responsive website for Skenzer AI startup featuring advanced animations and professional design.
+Building the Future of Business Operations
 
 ## 🚀 Features
 
-- **Modern Design**: Clean, professional interface with dark/light theme support
-- **Responsive Layout**: Optimized for all devices and screen sizes
-- **Interactive Animations**: 5 different animation styles with style selector
-- **Multi-page Structure**: Separate pages for Home, About, Product, and Contact
-- **Theme Switching**: Dynamic color schemes (green for dark mode, purple for light mode)
-- **Professional Content**: Tailored for tech investors and venture capitalists
+- **Modern UI/UX**: Clean, professional design with smooth animations
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Dark/Light Mode**: Toggle between themes with sophisticated styling
+- **Mobile-First**: Excellent mobile experience with clean hamburger menu
+- **Performance**: Fast loading and smooth interactions
 
-## 🎨 Animation Styles
+## 🛠️ Tech Stack
 
-1. **Floating Icons**: Tech icons that gently float with hover effects
-2. **Typing Animation**: Terminal-style typewriter effect
-3. **Geometric Animation**: Rotating shapes with connecting lines
-4. **Wave Flow**: Data flow visualization with animated waves
-5. **Pulse Animation**: AI heartbeat effect with expanding rings
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling with animations and responsive design
+- **JavaScript**: Interactive functionality and theme switching
+- **Playwright**: Automated testing for quality assurance
+
+## 📱 Mobile Menu Features
+
+- **Transparent Hamburger**: Clean, minimal hamburger icon
+- **Smooth Animations**: Sophisticated X formation and menu transitions
+- **Theme-Aware**: Purple highlights in light mode, green in dark mode
+- **Professional UX**: Clean, modern mobile navigation
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sandythecoderman/Website.git
+   cd Website
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run locally**
+   ```bash
+   npm run dev
+   ```
+   Or use Python:
+   ```bash
+   python3 -m http.server 8080
+   ```
+
+4. **Run tests**
+   ```bash
+   npm test
+   ```
 
 ## 📁 Project Structure
 
 ```
-skenzer-website/
-├── index.html          # Home page
-├── about.html          # About Us page
-├── product.html        # Product/Skenzer Synapse page
+├── index.html          # Main homepage
+├── product.html        # Product page
+├── about.html          # About page
 ├── contact.html        # Contact page
-├── styles.css          # Main stylesheet with animations
+├── styles.css          # Main stylesheet
 ├── script.js           # JavaScript functionality
-└── README.md           # Project documentation
+├── mobile-menu.spec.js # Playwright tests
+└── README.md           # This file
 ```
 
-## 🛠️ Technologies Used
+## 🎨 Design Features
 
-- **HTML5**: Semantic markup and structure
-- **CSS3**: Modern styling with Flexbox, Grid, and animations
-- **JavaScript**: Interactive functionality and theme switching
-- **Font Awesome**: Icons for UI elements
-- **Google Fonts**: Montserrat font family
+- **Clean Typography**: Professional font choices
+- **Smooth Animations**: Sophisticated transitions and effects
+- **Responsive Layout**: Adapts perfectly to all screen sizes
+- **Accessibility**: WCAG compliant design
+- **Performance**: Optimized for fast loading
 
-## 🎯 Key Sections
+## 🧪 Testing
 
-### Home Page
-- Hero section with animated visual components
-- Problem statement with three key challenges
-- Solution introduction with Skenzer Synapse
-- Impact metrics with ROI statistics
+The project includes comprehensive Playwright tests for:
+- Mobile menu functionality
+- Theme switching
+- Responsive design
+- Cross-browser compatibility
 
-### About Page
-- Company story and mission
-- Team member profiles
-- Founding narrative
-
-### Product Page
-- Skenzer Synapse platform details
-- Two-engine architecture explanation
-- Use cases with interactive tabs
-- Call-to-action for demos
-
-### Contact Page
-- Contact information for different inquiries
-- Contact form with validation
-- Professional contact details
-
-## 🌟 Design Highlights
-
-- **Color Scheme**: 
-  - Dark mode: Green accents (#00ff88)
-  - Light mode: Purple accents (#8b5cf6)
-- **Typography**: Montserrat font family for modern, clean look
-- **Animations**: Smooth CSS transitions and keyframe animations
-- **Responsive**: Mobile-first approach with adaptive layouts
-
-## 🚀 Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/skenzer-website.git
-   cd skenzer-website
-   ```
-
-2. Open in your browser:
-   ```bash
-   python3 -m http.server 8000
-   ```
-   Then visit `http://localhost:8000`
-
-3. Or simply open `index.html` in your browser
-
-## 📱 Browser Support
-
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-- Mobile browsers
-
-## 🎨 Customization
-
-### Changing Colors
-Edit the CSS variables in `styles.css`:
-```css
-:root {
-    --accent-color: #00ff88; /* Dark mode color */
-}
-
-[data-theme="light"] {
-    --accent-color: #8b5cf6; /* Light mode color */
-}
+Run tests with:
+```bash
+npm test
 ```
-
-### Adding New Animations
-1. Add new animation component to HTML
-2. Create corresponding CSS styles
-3. Add button to style selector
-4. Update JavaScript for switching
 
 ## 📄 License
 
-This project is created for Skenzer AI startup. All rights reserved.
+MIT License - see LICENSE file for details
 
 ## 🤝 Contributing
 
-This is a private project for Skenzer AI. For questions or suggestions, please contact the development team.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
 ---
 
-**Built with ❤️ for Skenzer AI** 
+**Skenzer** - Building the Future of Business Operations 
