@@ -9108,13 +9108,13 @@ body {
     
     /* Hero Section */
     .hero {
-        padding: 60px 0 20px;
+        padding: 80px 0 20px;
         min-height: 50vh;
     }
     
     .hero-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 8px;
         text-align: center;
     }
     
@@ -9132,7 +9132,7 @@ body {
     .hero-subtitle {
         font-size: 0.75rem;
         line-height: 1.2;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
     
     .hero-visual {
