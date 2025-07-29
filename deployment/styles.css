@@ -9309,12 +9309,13 @@ body {
     
     /* Product Page Specific */
     .product-hero {
-        padding: 40px 0;
+        padding: 20px 0;
+        min-height: auto;
     }
     
     .product-hero-content {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         text-align: center;
     }
     
@@ -9324,16 +9325,42 @@ body {
     
     .product-hero-visual {
         order: 1;
-        max-width: 280px;
+        max-width: 200px;
         margin: 0 auto;
     }
     
     .product-hero-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
     }
     
     .product-hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Even more compact for smaller screens */
+    @media (max-width: 480px) {
+        .product-hero {
+            padding: 15px 0;
+        }
+        
+        .product-hero-content {
+            gap: 15px;
+        }
+        
+        .product-hero-visual {
+            max-width: 160px;
+        }
+        
+        .product-hero-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        
+        .product-hero-subtitle {
+            font-size: 0.85rem;
+        }
     }
     
     .synergy-section-compact {
