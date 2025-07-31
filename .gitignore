@@ -1,29 +1,22 @@
 # Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+package-lock.json
 
 # Testing
-test_*.html
-test_*.js
-test_*.py
-debug_*.js
-debug_*.py
-website_test.js
-website_test.py
+test-results/
+playwright-report/
+*.spec.js
+*-test.js
+*-test.html
+debug-*.js
+*.png
 
-# Package files
-package-lock.json
-package.json
+# Deployment
+.netlify/
+deployment/
 
-# OS generated files
+# OS files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
 # IDE files
@@ -31,9 +24,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
-*~
 
 # Logs
-*.log 
-# Local Netlify folder
-.netlify
+*.log
+npm-debug.log*

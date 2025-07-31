@@ -1,0 +1,27 @@
+{
+  "name": "skenzer-website",
+  "version": "1.0.0",
+  "description": "Skenzer - Building the Future of Business Operations",
+  "main": "index.html",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "dev": "python3 -m http.server 8080",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": [
+    "business",
+    "operations",
+    "ai",
+    "automation"
+  ],
+  "author": "Skenzer Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "netlify-cli": "^21.6.0"
+  },
+  "dependencies": {
+    "puppeteer": "^24.15.0"
+  }
+}

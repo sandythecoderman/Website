@@ -108,7 +108,8 @@ function handleEyeMouseMove(e) {
 function handleEyeTouchMove(e) {
     if (!isEyeTracking || !leftPupil || !rightPupil) return;
     
-    e.preventDefault();
+    // Only prevent default if we're actually tracking the eye movement
+    // This allows normal scrolling when not actively tracking
     const touch = e.touches[0];
     const rect = pcContainer.getBoundingClientRect();
     const centerX = rect.width / 2;
@@ -117,16 +118,21 @@ function handleEyeTouchMove(e) {
     const touchX = touch.clientX - rect.left;
     const touchY = touch.clientY - rect.top;
     
-    const deltaX = touchX - centerX;
-    const deltaY = touchY - centerY;
-    
-    // Constrain eye movement to stay within screen boundaries
-    const maxEyeMovement = 18;
-    const eyeX = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaX / centerX) * maxEyeMovement));
-    const eyeY = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaY / centerY) * maxEyeMovement));
-    
-    leftPupil.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
-    rightPupil.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+    // Only track if touch is within the PC container bounds
+    if (touchX >= 0 && touchX <= rect.width && touchY >= 0 && touchY <= rect.height) {
+        e.preventDefault();
+        
+        const deltaX = touchX - centerX;
+        const deltaY = touchY - centerY;
+        
+        // Constrain eye movement to stay within screen boundaries
+        const maxEyeMovement = 18;
+        const eyeX = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaX / centerX) * maxEyeMovement));
+        const eyeY = Math.max(-maxEyeMovement, Math.min(maxEyeMovement, (deltaY / centerY) * maxEyeMovement));
+        
+        leftPupil.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+        rightPupil.style.transform = `translate(calc(-50% + ${eyeX}px), calc(-50% + ${eyeY}px))`;
+    }
 }
 
 function resetEyePosition() {
@@ -273,45 +279,48 @@ function initDynamicGraph() {
     }
 }
 
-// Mobile Navigation Toggle
-function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        console.log('Mobile menu elements found:', { hamburger, navMenu });
-        
-        hamburger.addEventListener('click', () => {
-            console.log('Hamburger clicked');
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            console.log('Menu class after toggle:', navMenu.className);
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-    } else {
-        console.log('Mobile menu elements not found:', { hamburger, navMenu });
-    }
-}
+// Mobile Navigation Toggle - REMOVED (now handled by mobile-menu.js)
+// The mobile menu functionality has been moved to mobile-menu.js for better organization
 
 // Theme Toggle Functionality
-const themeToggle = document.getElementById('themeToggle');
+const themeToggles = document.querySelectorAll('.theme-toggle');
 
 // Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', currentTheme);
 
+// Set initial CSS variables based on theme
+if (currentTheme === 'light') {
+    document.documentElement.style.setProperty('--accent-color', '#8b5cf6');
+    document.documentElement.style.setProperty('--primary-color', '#8b5cf6');
+} else {
+    document.documentElement.style.setProperty('--accent-color', '#00ff88');
+    document.documentElement.style.setProperty('--primary-color', '#00ff88');
+}
+
 function updateThemeIcons(theme) {
-    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+    // Update all theme toggles
+    const allThemeToggles = document.querySelectorAll('.theme-toggle');
     
+    allThemeToggles.forEach(toggle => {
+        const themeIcon = toggle.querySelector('i');
+        if (themeIcon) {
+            if (theme === 'light') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+    });
+    
+    // Update CSS variables for light theme (purple)
     if (theme === 'light') {
-        if (themeIcon) themeIcon.className = 'fas fa-sun';
+        document.documentElement.style.setProperty('--accent-color', '#8b5cf6');
+        document.documentElement.style.setProperty('--primary-color', '#8b5cf6');
     } else {
-        if (themeIcon) themeIcon.className = 'fas fa-moon';
+        // Update CSS variables for dark theme (green)
+        document.documentElement.style.setProperty('--accent-color', '#00ff88');
+        document.documentElement.style.setProperty('--primary-color', '#00ff88');
     }
     
     // Update floating particles color
@@ -320,13 +329,33 @@ function updateThemeIcons(theme) {
 
 updateThemeIcons(currentTheme);
 
+// Function to initialize all theme toggles
+function initThemeToggles() {
+    const allThemeToggles = document.querySelectorAll('.theme-toggle');
+    allThemeToggles.forEach(toggle => {
+        // Remove any existing event listeners to prevent duplicates
+        toggle.removeEventListener('click', handleThemeToggle);
+        // Add the event listener
+        toggle.addEventListener('click', handleThemeToggle);
+    });
+    console.log(`Initialized ${allThemeToggles.length} theme toggles`);
+}
+
+// Initialize theme toggles on page load
+initThemeToggles();
+
 function handleThemeToggle() {
-    // Add click animation to theme toggle
-    if (themeToggle) themeToggle.classList.add('clicked');
+    // Add click animation to all theme toggles
+    const allThemeToggles = document.querySelectorAll('.theme-toggle');
+    allThemeToggles.forEach(toggle => {
+        toggle.classList.add('clicked');
+    });
     
     // Remove animation class after animation completes
     setTimeout(() => {
-        if (themeToggle) themeToggle.classList.remove('clicked');
+        allThemeToggles.forEach(toggle => {
+            toggle.classList.remove('clicked');
+        });
     }, 600);
     
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -334,13 +363,25 @@ function handleThemeToggle() {
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    
+    // Update CSS variables immediately
+    if (newTheme === 'light') {
+        document.documentElement.style.setProperty('--accent-color', '#8b5cf6');
+        document.documentElement.style.setProperty('--primary-color', '#8b5cf6');
+    } else {
+        document.documentElement.style.setProperty('--accent-color', '#00ff88');
+        document.documentElement.style.setProperty('--primary-color', '#00ff88');
+    }
+    
     updateThemeIcons(newTheme);
 }
 
-// Theme toggle event listener
-if (themeToggle) {
-    themeToggle.addEventListener('click', handleThemeToggle);
-}
+// Also add event listeners to any dynamically added theme toggles
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.theme-toggle')) {
+        handleThemeToggle();
+    }
+});
 
 
 
@@ -355,8 +396,10 @@ function updateParticlesColor(theme) {
 
 // Initialize functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Mobile Menu
-    initMobileMenu();
+    // Initialize Theme Toggles
+    initThemeToggles();
+    
+    // Mobile Menu is now handled by mobile-menu.js
     
     // Initialize PC Eyes functionality
     initPCEyes();
@@ -976,13 +1019,7 @@ function initIndustriesSlider() {
     let autoPlayInterval;
     let isTransitioning = false;
     
-    // Touch/swipe variables
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let isDragging = false;
-    let startTranslateX = 0;
-    let currentTranslateX = 0;
-    let prevTranslateX = 0;
+    // Removed touch/swipe variables to prevent scrolling interference
     
     // Create dots
     slides.forEach((_, index) => {
@@ -1091,74 +1128,13 @@ function initIndustriesSlider() {
         }
     });
     
-    // Touch/swipe event handlers for mobile
-    function handleTouchStart(e) {
-        touchStartX = e.touches[0].clientX;
-        isDragging = true;
-        startTranslateX = currentTranslateX;
-        
-        // Pause auto-play during touch
-        if (autoPlayInterval) {
-            clearInterval(autoPlayInterval);
-        }
-    }
-    
-    function handleTouchMove(e) {
-        if (!isDragging) return;
-        
-        e.preventDefault();
-        const touchX = e.touches[0].clientX;
-        const diff = touchX - touchStartX;
-        currentTranslateX = startTranslateX + diff;
-        
-        // Apply transform to current slide
-        const currentSlideElement = slides[currentSlide];
-        if (currentSlideElement) {
-            currentSlideElement.style.transform = `translateX(${currentTranslateX}px)`;
-            currentSlideElement.style.transition = 'none';
-        }
-    }
-    
-    function handleTouchEnd(e) {
-        if (!isDragging) return;
-        
-        isDragging = false;
-        touchEndX = e.changedTouches[0].clientX;
-        const diff = touchEndX - touchStartX;
-        
-        // Reset transform
-        const currentSlideElement = slides[currentSlide];
-        if (currentSlideElement) {
-            currentSlideElement.style.transition = 'transform 0.3s ease';
-            currentSlideElement.style.transform = 'translateX(0)';
-        }
-        
-        // Determine swipe direction and threshold
-        const swipeThreshold = 50;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe right - go to previous slide
-                prevSlide();
-            } else {
-                // Swipe left - go to next slide
-                nextSlide();
-            }
-        }
-        
-        // Resume auto-play
-        startAutoPlay();
-    }
-    
-    // Add touch event listeners
-    slider.addEventListener('touchstart', handleTouchStart, { passive: false });
-    slider.addEventListener('touchmove', handleTouchMove, { passive: false });
-    slider.addEventListener('touchend', handleTouchEnd, { passive: false });
+    // Touch/swipe functionality removed to prevent scrolling interference
+    // Navigation now only works with arrow buttons
     
     // Initialize first slide
     updateSlider();
     
-    // Auto-play is disabled by default - uncomment the line below to enable
+    // Auto-play is completely disabled to prevent interference with scrolling
     // startAutoPlay();
 }
 

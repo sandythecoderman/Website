@@ -1,102 +1,89 @@
 # Skenzer Website
 
-Building the Future of Business Operations
+A modern, responsive website for Skenzer built with HTML, CSS, and JavaScript.
 
 ## 🚀 Features
 
-- **Modern UI/UX**: Clean, professional design with smooth animations
-- **Responsive Design**: Optimized for all devices and screen sizes
-- **Dark/Light Mode**: Toggle between themes with sophisticated styling
-- **Mobile-First**: Excellent mobile experience with clean hamburger menu
-- **Performance**: Fast loading and smooth interactions
-
-## 🛠️ Tech Stack
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with animations and responsive design
-- **JavaScript**: Interactive functionality and theme switching
-- **Playwright**: Automated testing for quality assurance
-
-## 📱 Mobile Menu Features
-
-- **Transparent Hamburger**: Clean, minimal hamburger icon
-- **Smooth Animations**: Sophisticated X formation and menu transitions
-- **Theme-Aware**: Purple highlights in light mode, green in dark mode
-- **Professional UX**: Clean, modern mobile navigation
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/sandythecoderman/Website.git
-   cd Website
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Run locally**
-   ```bash
-   npm run dev
-   ```
-   Or use Python:
-   ```bash
-   python3 -m http.server 8080
-   ```
-
-4. **Run tests**
-   ```bash
-   npm test
-   ```
+- **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- **Modern UI/UX** - Clean, professional design with smooth animations
+- **Interactive Elements** - Dynamic navigation, forms, and user interactions
+- **Cross-browser Compatible** - Works on all modern browsers
+- **Fast Loading** - Optimized assets and efficient code
 
 ## 📁 Project Structure
 
 ```
-├── index.html          # Main homepage
-├── product.html        # Product page
+website/
+├── index.html          # Homepage
 ├── about.html          # About page
 ├── contact.html        # Contact page
+├── product.html        # Product page
 ├── styles.css          # Main stylesheet
-├── script.js           # JavaScript functionality
-├── mobile-menu.spec.js # Playwright tests
+├── modern-nav.css      # Navigation styles
+├── mobile-menu.css     # Mobile menu styles
+├── script.js           # Main JavaScript
+├── mobile-menu.js      # Mobile menu functionality
+├── *.jpeg              # Team member images
+├── NYXERIN.otf         # Custom font
+├── package.json        # Project configuration
 └── README.md           # This file
 ```
 
-## 🎨 Design Features
+## 🛠️ Development
 
-- **Clean Typography**: Professional font choices
-- **Smooth Animations**: Sophisticated transitions and effects
-- **Responsive Layout**: Adapts perfectly to all screen sizes
-- **Accessibility**: WCAG compliant design
-- **Performance**: Optimized for fast loading
+### Prerequisites
+- Python 3.x (for local server)
 
-## 🧪 Testing
+### Running Locally
+1. Clone the repository
+2. Navigate to the project directory
+3. Start the development server:
+   ```bash
+   python3 -m http.server 8080
+   ```
+4. Open your browser and go to `http://localhost:8080`
 
-The project includes comprehensive Playwright tests for:
-- Mobile menu functionality
-- Theme switching
-- Responsive design
-- Cross-browser compatibility
+## 🚀 Deployment
 
-Run tests with:
-```bash
-npm test
-```
+### Netlify Deployment
+1. Use the `netlify-deploy/` folder for deployment
+2. Drag and drop the folder to Netlify
+3. Your site will be live automatically
+
+### Manual Deployment
+1. Upload all files to your web server
+2. Ensure all assets are in the correct relative paths
+3. Configure your server for client-side routing if needed
+
+## 🎨 Customization
+
+### Fonts
+- **Primary**: Inter (Google Fonts)
+- **Secondary**: Orbitron (Google Fonts)
+- **Custom**: NYXERIN.otf (included)
+
+### Colors
+- Primary colors are defined in `styles.css`
+- Easily customizable through CSS variables
+
+## 📱 Mobile Support
+
+- Fully responsive design
+- Touch-friendly navigation
+- Optimized for mobile performance
+- Mobile-first approach
+
+## 🔧 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
+This project is proprietary to Skenzer.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
----
-
-**Skenzer** - Building the Future of Business Operations 
+For internal development only. Please follow the existing code style and structure. 

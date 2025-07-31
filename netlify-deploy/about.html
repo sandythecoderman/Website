@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Skenzer</title>
-    <link rel="stylesheet" href="styles.css?v=1.9">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modern-nav.css">
+    <link rel="stylesheet" href="mobile-menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,18 +32,18 @@
                 <li><a href="about.html" class="nav-link active">About</a></li>
                 <li><a href="product.html" class="nav-link">Product</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <!-- Theme Toggle inside mobile menu -->
-                <li class="mobile-theme-toggle">
+                <!-- Theme Toggle -->
+                <li class="theme-toggle-container">
                     <div class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </div>
                 </li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -63,7 +65,7 @@
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="Heramb.png" alt="Heramb Skanda" class="member-photo">
+                            <img src="heramb.jpeg" alt="Heramb Skanda" class="member-photo">
                         </div>
                         <h4>Heramb Skanda</h4>
                         <p class="member-title">Co-Founder & CEO</p>
@@ -71,7 +73,7 @@
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="Purnodeep.png" alt="Purnodeep Rajankar" class="member-photo">
+                            <img src="purno.jpeg" alt="Purnodeep Rajankar" class="member-photo">
                         </div>
                         <h4>Purnodeep Rajankar</h4>
                         <p class="member-title">Co-Founder & Business Lead</p>
@@ -79,7 +81,7 @@
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="Shandesh.png" alt="Shandesh Paul" class="member-photo">
+                            <img src="shandesh.jpeg" alt="Shandesh Paul" class="member-photo">
                         </div>
                         <h4>Shandesh Paul</h4>
                         <p class="member-title">Co-Founder & Innovation Lead</p>
@@ -157,6 +159,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3.5"></script>
+    <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
 </body>
 </html> 

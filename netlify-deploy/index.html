@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skenzer - The Autonomous Technology Operations Platform for Ambitious Businesses</title>
-    <link rel="stylesheet" href="styles.css?v=2.4">
+    <link rel="stylesheet" href="styles.css?v=3.4">
+    <link rel="stylesheet" href="modern-nav.css">
+    <link rel="stylesheet" href="mobile-menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,17 +33,17 @@
                 <li><a href="product.html" class="nav-link">Product</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <!-- Theme Toggle -->
-                <li class="mobile-theme-toggle">
+                <li class="theme-toggle-container">
                     <div class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </div>
                 </li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -175,7 +177,7 @@
     <section class="solution-section">
         <div class="container">
             <h2 class="section-title">
-                How <span class="highlight">Skenzer Synapse</span> Works
+                Introducing <span class="highlight">Skenzer Synapse</span>: The Future of Intelligent Operations
             </h2>
             
             <!-- Clean Workflow Structure -->
@@ -522,7 +524,7 @@
                 <p>Join thousands of companies already using Skenzer Synapse to automate their operations</p>
                 <div class="cta-buttons">
                     <a href="product.html" class="cta-button">Get Started</a>
-                    <a href="contact.html" class="cta-button secondary">Schedule Demo</a>
+                    <a href="contact.html" class="cta-button secondary" onclick="console.log('Contact button clicked!');">Schedule Demo</a>
                 </div>
             </div>
         </div>
@@ -539,7 +541,7 @@
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="product.html">Product</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="contact.html" onclick="console.log('Footer contact link clicked!');">Contact</a>
                 </div>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -553,6 +555,43 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3.5"></script>
+    <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script>
+        // Debug function to test contact button functionality
+        function testContactButtons() {
+            console.log('Testing contact buttons...');
+            
+            // Test CTA button
+            const ctaButton = document.querySelector('.cta-button[href="contact.html"]');
+            if (ctaButton) {
+                console.log('CTA contact button found:', ctaButton);
+                ctaButton.addEventListener('click', function(e) {
+                    console.log('CTA contact button clicked!');
+                });
+            }
+            
+            // Test footer link
+            const footerLink = document.querySelector('.footer-links a[href="contact.html"]');
+            if (footerLink) {
+                console.log('Footer contact link found:', footerLink);
+                footerLink.addEventListener('click', function(e) {
+                    console.log('Footer contact link clicked!');
+                });
+            }
+            
+            // Test navigation link
+            const navLink = document.querySelector('.nav-link[href="contact.html"]');
+            if (navLink) {
+                console.log('Navigation contact link found:', navLink);
+                navLink.addEventListener('click', function(e) {
+                    console.log('Navigation contact link clicked!');
+                });
+            }
+        }
+        
+        // Run test when page loads
+        document.addEventListener('DOMContentLoaded', testContactButtons);
+    </script>
 </body>
 </html> 
